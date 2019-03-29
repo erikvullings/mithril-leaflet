@@ -9,7 +9,7 @@ export const Layout = () => ({
       m(
         'nav',
         m('.nav-wrapper', [
-          m('a.brand-logo[href=#]', 'MITHRIL-LEAFLET'),
+          m('a.brand-logo[href=#]', { style: 'margin-left: 2em' }, 'MITHRIL-LEAFLET'),
           m(
             // tslint:disable-next-line:max-line-length
             'a.github-corner[aria-label=View source on GitHub][href=https://github.com/erikvullings/mithril-leaflet]',

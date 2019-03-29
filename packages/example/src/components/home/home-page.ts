@@ -241,13 +241,21 @@ export const HomePage = () => {
               },
             }),
             m('h2', 'Mithril-Leaflet'),
-            m('p', `This is a mithril component to create a Leaflet-based map. The component uses
+            m(
+              'p',
+              `This is a mithril component to create a Leaflet-based map. The component uses
 leaflet-draw for editing, where the last selected editable layer can be edited. When multiple layers
 are present, a layer control is shown. You can also enable the scale control, optionally choosing
-between metric, imperial or both.`),
+between metric, imperial or both.`
+            ),
             m('p', [
               'You can check out the API documentation ',
               m('a[href="https://erikvullings.github.io/mithril-leaflet/typedoc/index.html"]', 'here'),
+              ' or review the ',
+              m(
+                'a[href="https://github.com/erikvullings/mithril-leaflet/blob/master/packages/example/src/components/home/home-page.ts"]',
+                'source code'
+              ),
               '.',
             ]),
             m('h3', 'Installation'),
