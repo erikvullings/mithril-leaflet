@@ -1,0 +1,23 @@
+{
+  "name": "mithril-leaflet",
+  "version": "0.0.1",
+  "private": true,
+  "description": "A map component for mithril based on leaflet.",
+  "scripts": {
+    "postinstall": "lerna run link",
+    "link": "lerna run link",
+    "build:domain": "lerna run build:domain",
+    "start": "lerna run start --parallel",
+    "patch-release": "lerna run patch-release --parallel",
+    "minor-release": "lerna run minor-release --parallel"
+  },
+  "keywords": [
+    "mithril",
+    "mithril-leaflet"
+  ],
+  "author": "Erik Vullings <erik.vullings@gmail.com> (http://www.tno.nl)",
+  "license": "MIT",
+  "devDependencies": {
+    "lerna": "^3.13.1"
+  }
+}
