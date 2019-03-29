@@ -24,7 +24,7 @@
     "material-icons": "^0.3.0",
     "materialize-css": "^1.0.0",
     "mithril": "^2.0.0-rc.4",
-    "mithril-leaflet": "^0.0.1",
+    "mithril-leaflet": "^0.1.0",
     "mithril-materialized": "^0.11.4"
   },
   "devDependencies": {
