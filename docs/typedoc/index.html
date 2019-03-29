@@ -64,278 +64,40 @@
 	<div class="row">
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
-				<h1 id="mithril-materialized">mithril-materialized</h1>
-				<p>A <a href="https://materializecss.com">materialize-css</a> library for the Mithril framework (tested with v2.0.0-rc4 and higher, but presumably, it should work with v1.1.6 too), making it easier to use a Materialize theme in your application. The main focus of this library is on creating Mithril components for the more complicated Materialize components.</p>
-				<p>Supported components:</p>
-				<ul>
-					<li><a href="https://erikvullings.github.io/mithril-materialized/#!/buttons">Buttons</a><ul>
-							<li>Button</li>
-							<li>FlatButton</li>
-							<li>RoundButton</li>
-							<li>SubmitButton</li>
-						</ul>
-					</li>
-					<li><a href="https://erikvullings.github.io/mithril-materialized/#!/inputs">Inputs</a><ul>
-							<li>TextInput</li>
-							<li>TextArea</li>
-							<li>AutoComplete</li>
-							<li>UrlInput</li>
-							<li>EmailInput</li>
-							<li>NumberInput</li>
-							<li>ColorInput</li>
-							<li>RangeInput</li>
-							<li>Chips</li>
-						</ul>
-					</li>
-					<li><a href="https://erikvullings.github.io/mithril-materialized/#!/pickers">Pickers</a><ul>
-							<li>DatePicker</li>
-							<li>TimePicker</li>
-						</ul>
-					</li>
-					<li><a href="https://erikvullings.github.io/mithril-materialized/#!/selections">Selections</a><ul>
-							<li>Select</li>
-							<li>Options</li>
-							<li>RadioButtons</li>
-							<li>Switch</li>
-							<li>Dropdown</li>
-						</ul>
-					</li>
-					<li><a href="https://erikvullings.github.io/mithril-materialized/#!/collections">Collections</a><ul>
-							<li>Basic, Link and Avatar Collections</li>
-							<li>Collapsible or accordion</li>
-						</ul>
-					</li>
-					<li><a href="https://erikvullings.github.io/mithril-materialized/#!/modals">Others</a><ul>
-							<li>ModalPanel</li>
-							<li>MaterialBox</li>
-							<li>Carousel</li>
-							<li>Pagination</li>
-							<li>Parallax</li>
-						</ul>
-					</li>
-					<li>Additional<ul>
-							<li>Label</li>
-							<li>HelperText</li>
-						</ul>
-					</li>
-					<li>Not from Materialize-CSS<ul>
-							<li>CodeBlock</li>
-							<li><a href="https://erikvullings.github.io/mithril-materialized/#!/map_editor">MapEditor</a></li>
-							<li><a href="https://erikvullings.github.io/mithril-materialized/#!/timeline">Timeline</a></li>
-						</ul>
-					</li>
-				</ul>
-				<h2 id="version-history">Version history</h2>
-				<p>v0.11.3 No breaking changes</p>
-				<ul>
-					<li>FIX <code>Timeline</code>: Default date formatter did not add 1 to the months. See <a href="https://www.w3schools.com/js/js_dates.asp">here</a>.</li>
-					<li>FIX <code>MapEditor</code> when dealing with number inputs and the number was 0, it did not work properly.</li>
-					<li>FIX <code>NumberInput</code> when the number was 0, the label was not active (and overlaying the number).</li>
-				</ul>
-				<p>v0.11.2 No breaking changes</p>
-				<ul>
-					<li>FIX Issue with <code>SecondaryContent</code> in <code>Collection</code> component: when no <code>href</code> was provided, it still created a <code>href=#!undefined</code> link.</li>
-				</ul>
-				<p>v0.11.1 No breaking changes</p>
-				<ul>
-					<li>Improved generics of <code>Select</code> and <code>Dropdown</code> component</li>
-					<li>FIX Issue with <code>placeholder</code> in <code>Select</code> component: when no item was selected, it would not show the placeholder text.</li>
-				</ul>
-				<p>v0.11.0 New component, <code>Timeline</code></p>
-				<ul>
-					<li>Added a <code>Timeline</code> component to render vertical timelines.</li>
-					<li><code>Collection</code> now accepts other parameters, e.g. styles.</li>
-					<li>All <code>css</code> styles are extracted into separate <code>css</code> files, and imported in the component. This implies that you don&#39;t need to add the required CSS in your own application anymore (except for <code>materialisecss</code>, of course).</li>
-					<li>Added documentation using <code>Typedoc</code>. It can be found <a href="https://erikvullings.github.io/mithril-materialized/typedoc/index.html">here</a>.</li>
-				</ul>
-				<p>v0.10.0 New component, <code>MapEditor</code></p>
-				<ul>
-					<li>Added a new component, <code>MapEditor</code>, to edit a map of key-value pairs.</li>
-					<li><code>InputCheckbox</code> can now be disabled.</li>
-					<li>Attributes are better dealt with and no longer end up as unused attributes of elements.</li>
-					<li>Fixed a bug for <code>TextInput</code>, where sometimes the <code>active</code> class was not added even if the <code>input</code> element had a value.</li>
-				</ul>
-				<p>v0.9.10 Breaking changes</p>
-				<ul>
-					<li>Deprecated the use of all <code>contentClass</code> properties in favour of the mithril convention <code>className</code>.</li>
-				</ul>
-				<p>v0.9.9 Breaking changes</p>
-				<ul>
-					<li><code>ModalPanel</code>: it&#39;s description (i.e. the main content area of the modal) can be a <code>Vnode</code>.</li>
-					<li><code>Select</code> does not use <code>contentClass</code> anymore, but instead uses the regular mithril <code>className</code> (but not <code>class</code>, since this is a reserved keyword in TypeScript).</li>
-				</ul>
-				<p>v0.9.6 No breaking changes</p>
-				<ul>
-					<li>For a <code>Collection</code> with secondary content, do not create a SPA route (with a #!) but leave the URL as is.</li>
-				</ul>
-				<p>v0.9.5 No breaking changes</p>
-				<ul>
-					<li>FIX <code>Select</code> bug when numeric option IDs were used and ID === 0, option was never selected.</li>
-				</ul>
-				<p>v0.9.4 No breaking changes</p>
-				<ul>
-					<li>FIX <code>Collection</code> without headers did no longer render.</li>
-				</ul>
-				<p>v0.9.3 No breaking changes</p>
-				<ul>
-					<li><code>Collection</code> with links can now also contain a header.</li>
-					<li><code>Collection</code> with no items and only a header will now just render the header</li>
-				</ul>
-				<p>v0.9.0 Breaking changes</p>
-				<ul>
-					<li><code>Collapsible</code> is now correctly spelled (used to be <code>Collabsible</code>, oops).</li>
-					<li>Added <code>Collection</code>, to create a collection of items: supports basic, link and avatar collections.</li>
-				</ul>
-				<p>v0.8.3 No breaking changes</p>
-				<ul>
-					<li><code>FileInput</code> component can be disabled, and accepts file types.</li>
-				</ul>
-				<p>v0.8.1 No breaking changes</p>
-				<ul>
-					<li>Closes issue #1: Select issue with id === 0</li>
-					<li>MaterialBox can set height, passes attributes to wrapped image element</li>
-				</ul>
-				<p>v0.8.0 No breaking changes</p>
-				<ul>
-					<li><code>FileInput</code> component can specify <code>class</code> property on the <code>div</code> wrapper (default <code>col s12</code>) and <code>contentClass</code> property on the file input element.</li>
-				</ul>
-				<p>v0.7.0 Breaking changes for Dropdown component.</p>
-				<ul>
-					<li>New <code>FileInput</code> component to upload one or more files.</li>
-					<li><code>Dropdown</code> uses similar items as <code>Select</code>, and uses <code>checkedId</code> to select the item.</li>
-					<li><code>Dropdown</code> items can now use an icon and dividers.</li>
-					<li><code>Dropdown</code> can now have a helper text option and an icon prefix.</li>
-				</ul>
-				<p>v0.6.4 Breaking changes, bug fix.</p>
-				<ul>
-					<li><code>Select</code> did not always return the proper id on selection changes with multiple elements.</li>
-				</ul>
-				<p>v0.6.3 No breaking changes, bug fix.</p>
-				<ul>
-					<li><code>Select</code> did not update dynamically when checkedId changed.</li>
-				</ul>
-				<p>v0.6.2 No breaking changes</p>
-				<ul>
-					<li><code>Select</code> can use <code>M.FormSelectOptions</code>.</li>
-				</ul>
-				<p>v0.6.1 No breaking changes</p>
-				<ul>
-					<li><code>Select</code> can have <code>disabled</code> options, and <code>id</code> is optional (in which case the label is used).</li>
-					<li><code>Select</code> can use a prefix icon.</li>
-				</ul>
-				<p>v0.6.0 No breaking changes</p>
-				<ul>
-					<li><code>Inputs</code> can now use <code>onkeyup</code>, <code>onkeydown</code>, and <code>onkeypress</code> events. They also return the value.</li>
-					<li>Additionally, they can use <code>readOnly</code>, <code>pattern</code> and <code>autocomplete</code> (does not always seem to work).</li>
-				</ul>
-				<p>v0.5.0 No breaking changes</p>
-				<ul>
-					<li>NEW: Pagination control</li>
-					<li>BUG FIX: <code>Input.onchange</code> would not fire if the input was cleared.</li>
-					<li>All options now derives from mithril&#39;s <code>Attributes</code>.</li>
-					<li>Using <code>FactoryComponent</code> type</li>
-				</ul>
-				<p>v0.4.4 No breaking changes</p>
-				<ul>
-					<li>Do not pass attributes through, e.g. if you had a <code>m(FlatButton, { onupdate })</code>, the <code>onupdate</code> was passed through to the <code>HelperText</code> too.</li>
-				</ul>
-				<p>v0.4.3 No breaking changes</p>
-				<ul>
-					<li>The validate method for inputs now also accepts the HTMLInputElement</li>
-					<li>Removed a few left-over <code>console.log</code> statements.</li>
-				</ul>
-				<p>v0.4.2 No breaking changes</p>
-				<ul>
-					<li>Added <code>required</code> and <code>aria-required=&quot;true&quot;</code> attributes when the <code>required</code> or <code>isMandatory</code> property are set.</li>
-				</ul>
-				<p>v0.4.1 No breaking changes</p>
-				<ul>
-					<li>Updated all components to use the mithril <code>dom</code> attribute instead of performing a document query. This has two advantages: first of all, performance, since we do not need to query for an element we already have. Second, when implementing custom elements that have an <code>oncreate</code> function. Using document.query... will lead to no results.</li>
-				</ul>
-				<p>v0.4.0 No breaking changes</p>
-				<ul>
-					<li>New components: MaterialBox, Collapsible or accordion, and Carousel</li>
-				</ul>
-				<p>v0.3.0 Breaking changes</p>
-				<ul>
-					<li>Buttons no longer use the <code>ui</code> class to specify additional properties like <code>onclick</code>. Instead, you can leverage the mithril attributes directly. See the example, <code>button-page</code>.</li>
-					<li><code>contentClass</code> has been removed in favour of the default mithril <code>class</code> or <code>className</code> attribute.</li>
-					<li>The Icon function has been replaced by the <code>Icon</code> component. The <code>SmallIcon</code> and <code>PrefixedIcon</code> have been removed, as they can easily be created using the <code>Icon</code> component.</li>
-					<li>The <code>autofocus</code> attribute for inputs now also works on updates (by calling the element.focus() method).</li>
-					<li>The code has been split over multiple files, so it is easier to only import the components that you need.</li>
-				</ul>
-				<p>v0.2.2</p>
-				<ul>
-					<li>Validate function can return a custom validation message. Also, it is called in <code>onupdate</code>, so the validation occurs also when you just attach the validate function conditionally.</li>
-				</ul>
-				<p>v0.2.1</p>
-				<ul>
-					<li>Label field is optional for inputs.</li>
-					<li>Added autofocus function|property to input fields.</li>
-					<li>Added custom validation using the validate function|property to add valid/invalid label to an input.</li>
-					<li>Removed dependency on materialize-css (it is expected that it is imported via the main app).</li>
-				</ul>
-				<h2 id="usage-instructions">Usage instructions</h2>
-				<p>See the <a href="https://erikvullings.github.io/mithril-materialized/index.html">documentation</a> for examples on how to use this library in your own application. Please note that the library does not include mithril, nor the materialize-css JavaScript or CSS, so you have to include them yourself, as documented.</p>
+				<h1 id="mithril-leaflet">mithril-leaflet</h1>
+				<p>This library offers a <code>LeafletMap</code> component for the <a href="https://mithril.js.org">mithril</a> framework, which combines <a href="http://leafletjs.com">leaflet</a> for displaying maps, and <a href="http://leaflet.github.io/Leaflet.draw/docs/leaflet-draw-latest.html">leaflet-draw</a> for editing
+				overlays (see the <a href="https://erikvullings.github.io/mithril-leaflet/">demo</a>).</p>
+				<p>When editing, the last selected editable layer can be edited. So if you have multiple overlays, each of which can be edited, only the one you selected last can be changed. During editing, the same limitations apply as mentioned in <a href="http://leaflet.github.io/Leaflet.draw/docs/leaflet-draw-latest.html">leaflet-draw</a>: markers can be moved, polylines and lines can be edited. There is no editing support, however, for multi-lines and multi-polygons.</p>
+				<p>When multiple overlays are present, a layer control is shown. You can also enable the scale control, optionally choosing between metric, imperial or both.</p>
+				<p>You can check out the API documentation <a href="https://erikvullings.github.io/mithril-leaflet/typedoc/index.html">here</a> or review the <a href="https://github.com/erikvullings/mithril-leaflet/blob/master/packages/example/src/components/home/home-page.ts">example source code</a>.</p>
+				<h2 id="installation">Installation</h2>
+				<p>First, you need to install the required packages: note that this library does not contain <code>leaflet</code>, or <code>leaflet-draw</code>, so you need to install them yourself. It has been tested against <code>leaflet</code> v1.4.</p>
+				<pre><code class="language-bash">npm i mithril leaflet leaflet-draw mithril-leaflet
+<span class="hljs-comment"># Also install the typings if you use TypeScript</span>
+npm i --save-dev @types/leaflet @types/leaflet-draw @types/geojson @types/mithril</code></pre>
+				<h2 id="usage">Usage</h2>
+				<p>Now you can use it in your <a href="https://mithril.js.org">mithril</a> code.</p>
+				<pre><code class="language-ts"><span class="hljs-keyword">import</span> { LeafletMap } <span class="hljs-keyword">from</span> <span class="hljs-string">'mithril-leaflet'</span>;
+<span class="hljs-keyword">import</span> { Feature, Geometry } <span class="hljs-keyword">from</span> <span class="hljs-string">'geojson'</span>;
+<span class="hljs-keyword">import</span> { LatLngExpression, FeatureGroup, LeafletEvent, geoJSON } <span class="hljs-keyword">from</span> <span class="hljs-string">'leaflet'</span>
+
+...
+m(LeafletMap, {
+  style: <span class="hljs-string">'height: 400px; margin-top: 20px;'</span>,
+  view: [<span class="hljs-number">51.505</span>, <span class="hljs-number">-0.09</span>] <span class="hljs-keyword">as</span> LatLngExpression,
+  zoom: <span class="hljs-number">13</span>,
+  <span class="hljs-comment">// overlays,</span>
+  <span class="hljs-comment">// visible,</span>
+  editable: [<span class="hljs-string">'test'</span>, <span class="hljs-string">'pois'</span>],
+  onMapClicked: <span class="hljs-built_in">console</span>.log,
+  showScale: { imperial: <span class="hljs-literal">false</span> },
+  onLayerEdited: <span class="hljs-function">(<span class="hljs-params">f: FeatureGroup</span>) =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">JSON</span>.stringify(f.toGeoJSON(), <span class="hljs-literal">null</span>, <span class="hljs-number">2</span>)),
+  onLoadedOverlaysChanged: <span class="hljs-function">(<span class="hljs-params">v: <span class="hljs-built_in">string</span>[]</span>) =&gt;</span> (state.visible = v),
+})</code></pre>
 				<h2 id="build-instructions">Build instructions</h2>
-				<p>This repository consists of two packages, combined using <code>lerna</code>: the <code>lib</code> package that is published to <code>npm</code>, as well as an <code>example</code> project which uses this library to display the Mithril components that it contains.</p>
-				<p>To install the dependencies, you can use <code>npm i</code>, or, alternatively, use <code>pnpm m i</code> (assuming you have installed <code>pnpm</code> as alternative package manager using <code>npm i -g pnpm</code>) to perform a multi-repository install. Next, build everything using <code>npm start</code> and visit the documentation page on <a href="http://localhost:1234">http://localhost:1234</a> in case port 1234 is not occupied already.</p>
-				<h2 id="css">CSS</h2>
-				<p>Although I&#39;ve tried to limit the CSS adaptations to a minimum, I needed to tweak certain parts to make it look better. Here are the styles I&#39;ve added.</p>
-				<pre><code class="language-css"><span class="hljs-selector-class">.clear</span>,
-<span class="hljs-selector-class">.clear-10</span>,
-<span class="hljs-selector-class">.clear-15</span> {
-  <span class="hljs-attribute">clear</span>: both;
-  <span class="hljs-comment">/* overflow: hidden; Précaution pour IE 7 */</span>
-}
-<span class="hljs-selector-class">.clear-10</span> {
-  <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">10px</span>;
-}
-<span class="hljs-selector-class">.clear-15</span> {
-  <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">15px</span>;
-}
-
-<span class="hljs-selector-tag">input</span><span class="hljs-selector-attr">[type='color']</span><span class="hljs-selector-pseudo">:not(.browser-default)</span> {
-  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0px</span> <span class="hljs-number">0</span> <span class="hljs-number">8px</span> <span class="hljs-number">0</span>;
-  <span class="hljs-comment">/** Copied from input[type=number] */</span>
-  <span class="hljs-attribute">background-color</span>: transparent;
-  <span class="hljs-attribute">border</span>: none;
-  <span class="hljs-attribute">border-bottom</span>: <span class="hljs-number">1px</span> solid <span class="hljs-number">#9e9e9e</span>;
-  <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">0</span>;
-  <span class="hljs-attribute">outline</span>: none;
-  <span class="hljs-attribute">height</span>: <span class="hljs-number">3rem</span>;
-  <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
-  <span class="hljs-attribute">font-size</span>: <span class="hljs-number">16px</span>;
-  <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;
-  <span class="hljs-attribute">-webkit-box-shadow</span>: none;
-  <span class="hljs-attribute">box-shadow</span>: none;
-  <span class="hljs-attribute">-webkit-box-sizing</span>: content-box;
-  <span class="hljs-attribute">box-sizing</span>: content-box;
-  <span class="hljs-attribute">-webkit-transition</span>: border <span class="hljs-number">0.3s</span>, -webkit-box-shadow <span class="hljs-number">0.3s</span>;
-  <span class="hljs-attribute">transition</span>: border <span class="hljs-number">0.3s</span>, -webkit-box-shadow <span class="hljs-number">0.3s</span>;
-  <span class="hljs-attribute">transition</span>: box-shadow <span class="hljs-number">0.3s</span>, border <span class="hljs-number">0.3s</span>;
-  <span class="hljs-attribute">transition</span>: box-shadow <span class="hljs-number">0.3s</span>, border <span class="hljs-number">0.3s</span>, -webkit-box-shadow <span class="hljs-number">0.3s</span>;
-}
-
-<span class="hljs-selector-class">.codeblock</span> {
-  <span class="hljs-attribute">margin</span>: <span class="hljs-number">1.5rem</span> <span class="hljs-number">0</span> <span class="hljs-number">2.5rem</span> <span class="hljs-number">0</span>;
-}
-<span class="hljs-selector-class">.codeblock</span> &gt; <span class="hljs-selector-tag">div</span> {
-  <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">1rem</span>;
-}
-
-<span class="hljs-selector-class">.codeblock</span> &gt; <span class="hljs-selector-tag">label</span> {
-  <span class="hljs-attribute">display</span>: inline-block;
-}
-
-<span class="hljs-selector-tag">span</span><span class="hljs-selector-class">.mandatory</span> {
-  <span class="hljs-attribute">margin-left</span>: <span class="hljs-number">5px</span>;
-  <span class="hljs-attribute">color</span>: red;
-}
-
-<span class="hljs-selector-tag">label</span>+<span class="hljs-selector-class">.switch</span> {
-  <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">1rem</span>;
-}</code></pre>
+				<pre><code class="language-bash">pnpm m i <span class="hljs-comment"># You can also use `npm i`, but I prefer [pnpm](https://pnpm.js.org).</span>
+npm start <span class="hljs-comment"># during development</span>
+npm run build:domain <span class="hljs-comment"># for deploying it to GitHub</span></code></pre>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
