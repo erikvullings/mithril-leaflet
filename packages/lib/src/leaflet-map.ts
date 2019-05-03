@@ -165,10 +165,13 @@ export const LeafletMap: FactoryComponent<ILeafletMap> = () => {
       drawLayer.addLayer(layer);
     });
     if (onLayerEdited) {
-      map.on(L.Draw.Event.EDITSTOP, () => {
+      map.on(L.Draw.Event.CREATED, () => {
         onLayerEdited(drawLayer);
       });
       map.on(L.Draw.Event.DELETED, () => {
+        onLayerEdited(drawLayer);
+      });
+      map.on(L.Draw.Event.EDITSTOP, () => {
         onLayerEdited(drawLayer);
       });
     }
