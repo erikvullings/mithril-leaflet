@@ -196,7 +196,7 @@ export const HomePage = () => {
           '.col.s12.m7.l8',
           m('.introduction', [
             m(LeafletMap, {
-              style: 'height: 400px; margin-top: 20px;',
+              style: 'width: 100%; height: 400px; margin-top: 20px;',
               view: [51.505, -0.09] as LatLngExpression,
               zoom: 13,
               overlays,
@@ -275,7 +275,7 @@ import { LatLngExpression, FeatureGroup, LeafletEvent, geoJSON } from 'leaflet';
 
 ...
 m(LeafletMap, {
-  style: 'height: 400px; margin-top: 20px;',
+  style: 'width: 100%; height: 400px; margin-top: 20px;',
   view: [51.505, -0.09] as LatLngExpression,
   zoom: 13,
   // overlays,
