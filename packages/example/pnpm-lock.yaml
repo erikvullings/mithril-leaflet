@@ -1,19 +1,19 @@
 dependencies:
   leaflet: 1.4.0
   leaflet-draw: 1.0.4
-  material-icons: 0.3.0
+  material-icons: 0.3.1
   materialize-css: 1.0.0
   mithril: 2.0.0-rc.4
   mithril-leaflet: 'link:../lib'
-  mithril-materialized: 0.11.4
+  mithril-materialized: 0.11.8
 devDependencies:
   '@types/geojson': 7946.0.7
-  '@types/leaflet': 1.4.3
+  '@types/leaflet': 1.4.4
   '@types/mithril': 1.1.16
-  autoprefixer: 9.5.0
+  autoprefixer: 9.5.1
   cssnano: 4.1.10
   parcel-bundler: 1.12.3
-  typescript: 3.3.4000
+  typescript: 3.4.5
 lockfileVersion: 5
 packages:
   /@babel/code-frame/7.0.0:
@@ -836,20 +836,16 @@ packages:
       node: '>= 6.0.0'
     resolution:
       integrity: sha512-USSjRAAQYsZFlv43FUPdD+jEGML5/8oLF0rUzPQTtK4q9kvaXr49F5ZplyLz5lox78cLZ0TxN2bIDQ1xhOkulQ==
-  /@types/geojson/7946.0.6:
-    dev: true
-    resolution:
-      integrity: sha512-f6qai3iR62QuMPPdgyH+LyiXTL2n9Rf62UniJjV7KHrbiwzLTZUKsdq0mFSTxAHbO7JvwxwC4tH0m1UnweuLrA==
   /@types/geojson/7946.0.7:
     dev: true
     resolution:
       integrity: sha512-wE2v81i4C4Ol09RtsWFAqg3BUitWbHSpSlIo+bNdsCJijO9sjme+zm+73ZMCa/qMC8UEERxzGbvmr1cffo2SiQ==
-  /@types/leaflet/1.4.3:
+  /@types/leaflet/1.4.4:
     dependencies:
-      '@types/geojson': 7946.0.6
+      '@types/geojson': 7946.0.7
     dev: true
     resolution:
-      integrity: sha512-jFRBSsPHi1EwQSwrN0cOJLdPhwOZsRl4IMxvm/2ShLh0YM5GfCtQXCzsrv8RE7DWL+AykXdYSAd9bFLWbZT4CQ==
+      integrity: sha512-CROxHvsRDFyR1OQKZv/WJsCVFv8Wj6wFF/FOI/yiGwX7GMivyvF8Ks5AT3/JYk269pGiE43wP9JOgcr7EK2eUw==
   /@types/mithril/1.1.16:
     dev: true
     resolution:
@@ -1031,10 +1027,10 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-Wm6ukoaOGJi/73p/cl2GvLjTI5JM1k/O14isD73YML8StrH/7/lRFgmg8nICZgD3bZZvjwCGxtMOD3wWNAu8cg==
-  /autoprefixer/9.5.0:
+  /autoprefixer/9.5.1:
     dependencies:
-      browserslist: 4.5.2
-      caniuse-lite: 1.0.30000955
+      browserslist: 4.5.6
+      caniuse-lite: 1.0.30000966
       normalize-range: 0.1.2
       num2fraction: 1.2.2
       postcss: 7.0.14
@@ -1044,7 +1040,7 @@ packages:
       node: '>=6.0.0'
     hasBin: true
     resolution:
-      integrity: sha512-hMKcyHsZn5+qL6AUeP3c8OyuteZ4VaUlg+fWbyl8z7PqsKHF/Bf8/px3K6AT8aMzDkBo8Bc11245MM+itDBOxQ==
+      integrity: sha512-KJSzkStUl3wP0D5sdMlP82Q52JLy5+atf2MHAre48+ckWkXgixmfHyWmA77wFDy6jTHU6mIgXv6hAQ2mf1PjJQ==
   /aws-sign2/0.7.0:
     dev: true
     resolution:
@@ -1236,6 +1232,15 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-zmJVLiKLrzko0iszd/V4SsjTaomFeoVzQGYYOYgRgsbh7WNh95RgDB0CmBdFWYs/3MyFSt69NypjL/h3iaddKQ==
+  /browserslist/4.5.6:
+    dependencies:
+      caniuse-lite: 1.0.30000966
+      electron-to-chromium: 1.3.130
+      node-releases: 1.1.17
+    dev: true
+    hasBin: true
+    resolution:
+      integrity: sha512-o/hPOtbU9oX507lIqon+UvPYqpx3mHc8cV3QemSBTXwkG8gSQSK6UKvXcE/DcleU3+A59XTUHyCvZ5qGy8xVAg==
   /buffer-equal/0.0.1:
     dev: true
     engines:
@@ -1321,6 +1326,10 @@ packages:
     dev: true
     resolution:
       integrity: sha512-6AwmIKgqCYfDWWadRkAuZSHMQP4Mmy96xAXEdRBlN/luQhlRYOKgwOlZ9plpCOsVbBuqbTmGqDK3JUM/nlr8CA==
+  /caniuse-lite/1.0.30000966:
+    dev: true
+    resolution:
+      integrity: sha512-qqLQ/uYrpZmFhPY96VuBkMEo8NhVFBZ9y/Bh+KnvGzGJ5I8hvpIaWlF2pw5gqe4PLAL+ZjsPgMOvoXSpX21Keg==
   /caseless/0.12.0:
     dev: true
     resolution:
@@ -1993,6 +2002,10 @@ packages:
     dev: true
     resolution:
       integrity: sha512-ALxUkgrnQ6zg2SN9zHnwDcDRy577haGT9dqsbq8lfeAgmEUPC+58SrrU8vIHpGRf7SEyyBYy4mlfonDnoKxONw==
+  /electron-to-chromium/1.3.130:
+    dev: true
+    resolution:
+      integrity: sha512-UY2DI+gsnqGtQJqO8wXN0DnpJY+29FwJafACj0h18ZShn5besKnrRq6+lXWUbKzdxw92QQcnTqRLgNByOKXcUg==
   /elliptic/6.4.1:
     dependencies:
       bn.js: 4.11.8
@@ -3131,10 +3144,10 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-7Nyo8TFE5mDxtb1B8S80edmN+48=
-  /material-icons/0.3.0:
+  /material-icons/0.3.1:
     dev: false
     resolution:
-      integrity: sha512-nqKE2/yoiTJzoJ8Lw5SzJCDrNkA3hnJ8v70MkCwuA8C1Cayi31Azee1sloLyBAjOUtbctAC66p7Hh8Zow+rMrg==
+      integrity: sha512-5Hbj76A6xDPcDZEbM4oxTknhWuMwGWnAHVLLPCEq9eVlcHb0fn4koU9ZeyMy1wjARtDEPAHfd5ZdL2Re5hf0zQ==
   /materialize-css/1.0.0:
     dev: false
     resolution:
@@ -3238,10 +3251,10 @@ packages:
     dev: true
     resolution:
       integrity: sha1-o1AIsg9BOD7sH7kU9M1d95omQoQ=
-  /mithril-materialized/0.11.4:
+  /mithril-materialized/0.11.8:
     dev: false
     resolution:
-      integrity: sha512-+g7xs0uXBC/Xd+DLg6rNUwMfc/AT3BaXs8nFfynBEI75kqU3jqNXYkP0dcVuydzWjBey8AMnI/VLGPMlCL1CkA==
+      integrity: sha512-98rjvIulJAsmmJRxl3K6ev2QahSRWsWzOs2NbwMaet6NZ8ioJhFwD98/W+jG7+tbn0WYI9CoERjv1yegu/zosw==
   /mithril/2.0.0-rc.4:
     dev: false
     hasBin: true
@@ -3346,6 +3359,12 @@ packages:
     dev: true
     resolution:
       integrity: sha512-Y+AQ1xdjcgaEzpL65PBEF3fnl1FNKnDh9Zm+AUQLIlyyqtSc4u93jyMN4zrjMzdwKQ10RTr3tgY1x7qpsfF/xg==
+  /node-releases/1.1.17:
+    dependencies:
+      semver: 5.7.0
+    dev: true
+    resolution:
+      integrity: sha512-/SCjetyta1m7YXLgtACZGDYJdCSIBAWorDWkGCGZlydP2Ll7J48l7j/JxNYZ+xsgSPbWfdulVS/aY+GdjUsQ7Q==
   /nopt/4.0.1:
     dependencies:
       abbrev: 1.1.1
@@ -4995,13 +5014,13 @@ packages:
     dev: true
     resolution:
       integrity: sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
-  /typescript/3.3.4000:
+  /typescript/3.4.5:
     dev: true
     engines:
       node: '>=4.2.0'
     hasBin: true
     resolution:
-      integrity: sha512-jjOcCZvpkl2+z7JFn0yBOoLQyLoIkNZAs/fYJkUG6VKy6zLPHJGfQJYFHzibB6GJaF/8QrcECtlQ5cpvRHSMEA==
+      integrity: sha512-YycBxUb49UUhdNMU5aJ7z5Ej2XGmaIBL0x34vZ82fn3hGvD+bgrMrVDpatgz2f7YxUMJxMkbWxJZeAvDxVe7Vw==
   /uncss/0.16.2:
     dependencies:
       commander: 2.19.0
@@ -5267,16 +5286,16 @@ packages:
       integrity: sha1-HBH5IY8HYImkfdUS+TxmmaaoHVI=
 specifiers:
   '@types/geojson': ^7946.0.7
-  '@types/leaflet': ^1.4.3
+  '@types/leaflet': ^1.4.4
   '@types/mithril': ^1.1.16
-  autoprefixer: ^9.5.0
+  autoprefixer: ^9.5.1
   cssnano: ^4.1.10
   leaflet: ^1.4.0
   leaflet-draw: ^1.0.4
-  material-icons: ^0.3.0
+  material-icons: ^0.3.1
   materialize-css: ^1.0.0
-  mithril: ^2.0.0-rc.4
-  mithril-leaflet: ^0.0.1
-  mithril-materialized: ^0.11.4
+  mithril: next
+  mithril-leaflet: ^0.1.0
+  mithril-materialized: ^0.11.8
   parcel-bundler: ^1.12.3
-  typescript: ^3.3.4000
+  typescript: ^3.4.5
