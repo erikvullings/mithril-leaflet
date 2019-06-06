@@ -1,6 +1,6 @@
 {
   "name": "mithril-leaflet",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "A materialize library for mithril.",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -10,7 +10,8 @@
   },
   "scripts": {
     "link": "npm link",
-    "build:domain": "typedoc --out ../../docs/typedoc src",
+    "typedoc": "typedoc --out ../../docs/typedoc src",
+    "build:domain": "npm run build && npm run typedoc",
     "start": "webpack --config scripts/webpack.dev.js",
     "build": "webpack --optimize-minimize --config scripts/webpack.prod.js",
     "patch-release": "npm version patch --force -m \"Patch release\" && npm publish && git push --follow-tags",
