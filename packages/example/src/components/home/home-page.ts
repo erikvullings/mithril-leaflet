@@ -206,6 +206,8 @@ export const HomePage = () => {
               showScale: { imperial: false },
               onLayerEdited: (f: FeatureGroup) => console.log(JSON.stringify(f.toGeoJSON(), null, 2)),
               onLoadedOverlaysChanged: (v: string[]) => (state.visible = v),
+              onLoad: (e: Event) => console.log(e),
+              onUnload: (e: Event) => console.log(e),
             }),
             m(Button, {
               style: 'margin: 10px 10px 0 0;',

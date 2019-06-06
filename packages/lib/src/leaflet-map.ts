@@ -100,6 +100,31 @@ export interface ILeafletMap extends Attributes, TileLayerOptions {
    * Returns a list of the (keys of the) visible layers.
    */
   onLoadedOverlaysChanged?: (e: string[]) => void;
+  /** Fired when the number of zoomlevels on the map is changed due to adding or removing a layer. */
+  onZoomlevelsChange?: (e: Event) => void;
+  /** ResizeEvent	Fired when the map is resized. */
+  onResize?: (e: L.ResizeEvent) => void;
+  /** Fired when the map is destroyed with remove method. */
+  onUnload?: (e: Event) => void;
+  /**
+   * Fired? when the map needs to redraw its content (this usually happens on map zoom or load).
+   * Very useful for creating custom overlays.
+   */
+  onViewReset?: (e: Event) => void;
+  /** Fired when the map is initialized (when its center and zoom are set for the first time). */
+  onLoad?: (e: Event) => void;
+  /** Fired when the map zoom is about to change (e.g. before zoom animation). */
+  onZoomStart?: (e: Event) => void;
+  /** Fired when the view of the map starts changing (e.g. user starts dragging the map). */
+  onMoveStart?: (e: Event) => void;
+  /** Fired repeatedly during any change in zoom level, including zoom and fly animations. */
+  onZoom?: (e: Event) => void;
+  /** Fired repeatedly during any movement of the map, including pan and fly animations. */
+  onMove?: (e: Event) => void;
+  /** Fired when the map has changed, after any animations. */
+  onZoomEnd?: (e: Event) => void;
+  /** Fired when the center of the map stops changing (e.g. user stopped dragging the map). */
+  onMoveEnd?: (e: Event) => void;
 }
 
 export const LeafletMap: FactoryComponent<ILeafletMap> = () => {
@@ -300,11 +325,34 @@ export const LeafletMap: FactoryComponent<ILeafletMap> = () => {
         showScale,
         onLayerEdited,
         onLoadedOverlaysChanged: onVisibilityChanged,
+        onZoomlevelsChange,
+        onResize,
+        onUnload,
+        onLoad,
+        onZoomStart,
+        onMoveStart,
+        onZoom,
+        onMove,
+        onZoomEnd,
+        onMoveEnd,
         // ...params
       },
     }) => {
       const { id } = state;
-      const map = L.map(id).setView(view, zoom);
+      const map = L.map(id);
+      map.on('load', e => {
+        // In order to fix an issue when loading leaflet in a modal or tab: https://stackoverflow.com/a/53511529/319711
+        setTimeout(() => {
+          map.invalidateSize();
+        }, 0);
+        if (onLoad) {
+          onLoad(e as Event);
+        }
+      });
+      if (onUnload) {
+        map.on('unload', e => onUnload(e as Event));
+      }
+      map.setView(view, zoom);
       state.map = map;
       state.onVisibilityChanged = onVisibilityChanged;
       state.overlays = { ...overlays };
@@ -323,6 +371,30 @@ export const LeafletMap: FactoryComponent<ILeafletMap> = () => {
       }
       if (onMapDblClicked) {
         map.on('dblclick', e => onMapDblClicked(e as LeafletMouseEvent));
+      }
+      if (onZoomlevelsChange) {
+        map.on('zoomlevelschange', e => onZoomlevelsChange(e as Event));
+      }
+      if (onResize) {
+        map.on('resize', e => onResize(e as L.ResizeEvent));
+      }
+      if (onZoomStart) {
+        map.on('zoomstart', e => onZoomStart(e as Event));
+      }
+      if (onMoveStart) {
+        map.on('movestart', e => onMoveStart(e as Event));
+      }
+      if (onZoom) {
+        map.on('zoom', e => onZoom(e as Event));
+      }
+      if (onMove) {
+        map.on('move', e => onMove(e as Event));
+      }
+      if (onZoomEnd) {
+        map.on('zoomend', e => onZoomEnd(e as Event));
+      }
+      if (onMoveEnd) {
+        map.on('moveend', e => onMoveEnd(e as Event));
       }
 
       const bl = baseLayers
