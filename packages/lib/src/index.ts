@@ -1,2 +1,2 @@
 export { LeafletMap, ILeafletMap } from './leaflet-map';
-// export * from 'leaflet';
+export * from './utils';
