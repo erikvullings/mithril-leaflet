@@ -125,6 +125,8 @@ export interface ILeafletMap extends Attributes, TileLayerOptions {
   onZoomEnd?: (e: Event) => void;
   /** Fired when the center of the map stops changing (e.g. user stopped dragging the map). */
   onMoveEnd?: (e: Event) => void;
+  /** Callback that is run once after initialisation to return the underlying Leaflet.map object */
+  onLoaded?: (map: Map) => void;
 }
 
 export const LeafletMap: FactoryComponent<ILeafletMap> = () => {
@@ -335,7 +337,7 @@ export const LeafletMap: FactoryComponent<ILeafletMap> = () => {
         onMove,
         onZoomEnd,
         onMoveEnd,
-        // ...params
+        onLoaded,
       },
     }) => {
       const { id } = state;
@@ -425,6 +427,10 @@ export const LeafletMap: FactoryComponent<ILeafletMap> = () => {
         } else {
           L.control.scale(showScale).addTo(map);
         }
+      }
+
+      if (onLoaded) {
+        onLoaded(map);
       }
     },
   };
