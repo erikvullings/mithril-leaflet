@@ -6,7 +6,8 @@
   "scripts": {
     "postinstall": "lerna run link",
     "link": "lerna run link",
-    "clean": "rm -rf ./docs",
+    "clean:local": "rimraf ./docs",
+    "clean": "npm run clean:local && lerna run clean --parallel",
     "build:domain": "npm run clean && lerna run build:domain --parallel",
     "start": "lerna run start --parallel",
     "patch-release": "lerna run patch-release --parallel",
@@ -19,6 +20,7 @@
   "author": "Erik Vullings <erik.vullings@gmail.com> (http://www.tno.nl)",
   "license": "MIT",
   "devDependencies": {
-    "lerna": "^3.13.1"
+    "lerna": "^3.15.0",
+    "rimraf": "^2.6.3"
   }
 }

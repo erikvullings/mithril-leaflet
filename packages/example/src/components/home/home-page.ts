@@ -86,8 +86,8 @@ export const HomePage = () => {
           'marker-color': '#7e7e7e',
           'marker-size': 'medium',
           'marker-symbol': '',
-          metro: 'false',
-          square: 'true',
+          'metro': 'false',
+          'square': 'true',
         },
         geometry: {
           type: 'Point',
@@ -100,7 +100,7 @@ export const HomePage = () => {
           'marker-color': '#7e7e7e',
           'marker-size': 'medium',
           'marker-symbol': '',
-          poi: 'Cathedral',
+          'poi': 'Cathedral',
         },
         geometry: {
           type: 'Point',
@@ -113,7 +113,7 @@ export const HomePage = () => {
           'marker-color': '#7e7e7e',
           'marker-size': 'medium',
           'marker-symbol': '',
-          street: 'holborn',
+          'street': 'holborn',
         },
         geometry: {
           type: 'Point',
@@ -126,7 +126,7 @@ export const HomePage = () => {
           'marker-color': '#7e7e7e',
           'marker-size': 'medium',
           'marker-symbol': '',
-          hello: 'world',
+          'hello': 'world',
         },
         geometry: {
           type: 'Point',
@@ -139,7 +139,7 @@ export const HomePage = () => {
           'marker-color': '#7e7e7e',
           'marker-size': 'medium',
           'marker-symbol': '',
-          metro: 'true',
+          'metro': 'true',
         },
         geometry: {
           type: 'Point',
@@ -152,7 +152,7 @@ export const HomePage = () => {
           'marker-color': '#7e7e7e',
           'marker-size': 'medium',
           'marker-symbol': '',
-          metro: 'true',
+          'metro': 'true',
         },
         geometry: {
           type: 'Point',
@@ -180,7 +180,7 @@ export const HomePage = () => {
     count: 0,
     overlays: {
       test: toGeoJSON(geojson),
-      pois: toGeoJSON(pois),
+      // pois: toGeoJSON(pois),
     } as { [key: string]: FeatureGroup },
     feature: undefined as Feature<Geometry, any> | undefined,
   };
@@ -201,7 +201,7 @@ export const HomePage = () => {
               zoom: 13,
               overlays,
               visible,
-              editable: ['test', 'pois'],
+              // editable: ['test', 'pois'],
               onMapClicked: console.log,
               showScale: { imperial: false },
               onLayerEdited: (f: FeatureGroup) => console.log(JSON.stringify(f.toGeoJSON(), null, 2)),
