@@ -180,7 +180,7 @@ export const HomePage = () => {
     count: 0,
     overlays: {
       test: toGeoJSON(geojson),
-      // pois: toGeoJSON(pois),
+      pois: toGeoJSON(pois),
     } as { [key: string]: FeatureGroup },
     feature: undefined as Feature<Geometry, any> | undefined,
   };
