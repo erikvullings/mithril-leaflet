@@ -22,20 +22,20 @@
   "dependencies": {
     "material-icons": "^0.3.1",
     "materialize-css": "^1.0.0",
-    "mithril-materialized": "^0.14.3",
+    "mithril-materialized": "^0.15.4",
     "mithril": "^2.0.4",
     "leaflet": "^1.5.1",
     "leaflet-draw": "^1.0.4",
-    "mithril-leaflet": "^0.1.5"
+    "mithril-leaflet": "^0.1.6"
   },
   "devDependencies": {
     "rimraf": "^3.0.0",
     "@types/geojson": "^7946.0.7",
-    "@types/leaflet": "^1.5.1",
-    "@types/mithril": "^2.0.0",
-    "autoprefixer": "^9.6.1",
+    "@types/leaflet": "^1.5.5",
+    "@types/mithril": "^2.0.2",
+    "autoprefixer": "^9.7.1",
     "cssnano": "^4.1.10",
-    "parcel-bundler": "^1.12.3",
-    "typescript": "^3.6.2"
+    "parcel-bundler": "^1.12.4",
+    "typescript": "^3.7.2"
   }
 }

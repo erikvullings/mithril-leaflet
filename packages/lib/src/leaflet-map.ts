@@ -187,8 +187,8 @@ export const LeafletMap: FactoryComponent<ILeafletMap> = () => {
       },
     });
     map.addControl(drawControl);
-    map.on(L.Draw.Event.CREATED, event => {
-      const layer = (event as LayerEvent).layer;
+    map.on(L.Draw.Event.CREATED, (event: LayerEvent) => {
+      const layer = event.layer;
       drawLayer.addLayer(layer);
     });
     if (onLayerEdited) {
@@ -341,62 +341,62 @@ export const LeafletMap: FactoryComponent<ILeafletMap> = () => {
       },
     }) => {
       const { id } = state;
-      const map = L.map(id);
-      map.on('load', e => {
+      const map = L.map(id) as any;
+      map.on('load', (e: Event) => {
         // In order to fix an issue when loading leaflet in a modal or tab: https://stackoverflow.com/a/53511529/319711
         setTimeout(() => {
           map.invalidateSize();
         }, 0);
         if (onLoad) {
-          onLoad(e as Event);
+          onLoad(e);
         }
       });
       if (onUnload) {
-        map.on('unload', e => onUnload(e as Event));
+        map.on('unload', (e: Event) => onUnload(e));
       }
       map.setView(view, zoom);
       state.map = map;
       state.onVisibilityChanged = onVisibilityChanged;
       state.overlays = { ...overlays };
       state.editable = editable;
-      map.on('overlayadd', e => {
+      map.on('overlayadd', (e: L.LeafletEvent) => {
         overlayAddEventHandler(e, onLayerEdited);
         updateShowHideOverlays(e, true);
       });
-      map.on('overlayremove', e => {
+      map.on('overlayremove', (e: L.LeafletEvent) => {
         stopEditing(e);
         updateShowHideOverlays(e, false);
       });
 
       if (onMapClicked) {
-        map.on('click', e => onMapClicked(e as LeafletMouseEvent));
+        map.on('click', (e: LeafletMouseEvent) => onMapClicked(e));
       }
       if (onMapDblClicked) {
-        map.on('dblclick', e => onMapDblClicked(e as LeafletMouseEvent));
+        map.on('dblclick', (e: L.LeafletEvent) => onMapDblClicked(e as LeafletMouseEvent));
       }
       if (onZoomlevelsChange) {
-        map.on('zoomlevelschange', e => onZoomlevelsChange(e as Event));
+        map.on('zoomlevelschange', (e: Event) => onZoomlevelsChange(e));
       }
       if (onResize) {
-        map.on('resize', e => onResize(e as L.ResizeEvent));
+        map.on('resize', (e: L.ResizeEvent) => onResize(e));
       }
       if (onZoomStart) {
-        map.on('zoomstart', e => onZoomStart(e as Event));
+        map.on('zoomstart', (e: Event) => onZoomStart(e));
       }
       if (onMoveStart) {
-        map.on('movestart', e => onMoveStart(e as Event));
+        map.on('movestart', (e: Event) => onMoveStart(e));
       }
       if (onZoom) {
-        map.on('zoom', e => onZoom(e as Event));
+        map.on('zoom', (e: Event) => onZoom(e));
       }
       if (onMove) {
-        map.on('move', e => onMove(e as Event));
+        map.on('move', (e: Event) => onMove(e));
       }
       if (onZoomEnd) {
-        map.on('zoomend', e => onZoomEnd(e as Event));
+        map.on('zoomend', (e: Event) => onZoomEnd(e));
       }
       if (onMoveEnd) {
-        map.on('moveend', e => onMoveEnd(e as Event));
+        map.on('moveend', (e: Event) => onMoveEnd(e));
       }
 
       const bl = baseLayers
