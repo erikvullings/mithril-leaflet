@@ -10,6 +10,7 @@
     "clean": "npm run clean:local && lerna run clean --parallel",
     "build:domain": "npm run clean && lerna run build:domain --parallel",
     "start": "lerna run start --parallel",
+    "dry-run": "lerna run dry-run --parallel",
     "patch-release": "lerna run patch-release --parallel",
     "minor-release": "lerna run minor-release --parallel"
   },
@@ -20,7 +21,7 @@
   "author": "Erik Vullings <erik.vullings@gmail.com> (http://www.tno.nl)",
   "license": "MIT",
   "devDependencies": {
-    "lerna": "^3.16.4",
-    "rimraf": "^3.0.0"
+    "lerna": "^3.20.2",
+    "rimraf": "^3.0.2"
   }
 }
