@@ -298,7 +298,8 @@ export const LeafletMap: FactoryComponent<ILeafletMap> = () => {
     osm: L.tileLayer(osmBaseLayer, {
       subdomains: ['a', 'b'],
       attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
-      maxZoom: 24,
+      maxZoom: 19,
+      maxNativeZoom: 17,
     }),
   };
 
