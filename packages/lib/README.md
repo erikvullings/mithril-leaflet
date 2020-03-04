@@ -34,8 +34,22 @@ import { LatLngExpression, FeatureGroup, LeafletEvent, geoJSON } from 'leaflet'
 ...
 m(LeafletMap, {
   style: 'height: 400px; margin-top: 20px;',
-  view: [51.505, -0.09] as LatLngExpression,
-  zoom: 13,
+  // Default base layer, for others, see https://wiki.openstreetmap.org/wiki/Tile_servers
+  baseLayers: {
+    osm: {
+      url: 'http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png',
+      options: {
+        subdomains: ['a', 'b'],
+        attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
+        maxZoom: 19,
+        maxNativeZoom: 17,
+      },
+    },
+  },
+  // Optionally, specify initial view and zoom. By default, fit bounds is applied.
+  // view: [51.505, -0.09] as LatLngExpression,
+  // zoom: 13,
+  // Optionally, add overlay layers and specify which ones are visible.
   // overlays,
   // visible,
   editable: ['test', 'pois'],
