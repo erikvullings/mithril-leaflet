@@ -4,6 +4,8 @@ This library offers a `LeafletMap` component for the [mithril](https://mithril.j
 
 ![screenshot](https://github.com/erikvullings/mithril-leaflet/blob/master/img/screenshot.png?raw=true)
 
+If you set the view and zoom factor when creating the map, they are used for centring. Otherwise, all initial overlays are used to compute the bounds ([see leaflet.fitBounds](https://leafletjs.com/reference-1.6.0.html#map-fitbounds)).
+
 When editing, the last selected editable layer can be edited. So if you have multiple overlays, each of which can be edited, only the one you selected last can be changed. During editing, the same limitations apply as mentioned in [leaflet-draw](http://leaflet.github.io/Leaflet.draw/docs/leaflet-draw-latest.html): markers can be moved, polylines and lines can be edited. There is no editing support, however, for multi-lines and multi-polygons.
 
 When multiple overlays are present, a layer control is shown. You can also enable the scale control, optionally choosing between metric, imperial or both.

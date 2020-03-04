@@ -16,6 +16,7 @@ import L, {
   icon,
   LayerGroup,
   GeoJSON,
+  DrawMap,
 } from 'leaflet';
 import 'leaflet-draw';
 import iconRetinaUrl from 'leaflet/dist/images/marker-icon-2x.png';
@@ -101,30 +102,30 @@ export interface ILeafletMap extends Attributes, TileLayerOptions {
    */
   onLoadedOverlaysChanged?: (e: string[]) => void;
   /** Fired when the number of zoomlevels on the map is changed due to adding or removing a layer. */
-  onZoomlevelsChange?: (e: Event) => void;
+  onZoomlevelsChange?: (e: LeafletEvent) => void;
   /** ResizeEvent	Fired when the map is resized. */
   onResize?: (e: L.ResizeEvent) => void;
   /** Fired when the map is destroyed with remove method. */
-  onUnload?: (e: Event) => void;
+  onUnload?: (e: LeafletEvent) => void;
   /**
    * Fired? when the map needs to redraw its content (this usually happens on map zoom or load).
    * Very useful for creating custom overlays.
    */
-  onViewReset?: (e: Event) => void;
+  onViewReset?: (e: LeafletEvent) => void;
   /** Fired when the map is initialized (when its center and zoom are set for the first time). */
-  onLoad?: (e: Event) => void;
+  onLoad?: (e: LeafletEvent) => void;
   /** Fired when the map zoom is about to change (e.g. before zoom animation). */
-  onZoomStart?: (e: Event) => void;
+  onZoomStart?: (e: LeafletEvent) => void;
   /** Fired when the view of the map starts changing (e.g. user starts dragging the map). */
-  onMoveStart?: (e: Event) => void;
+  onMoveStart?: (e: LeafletEvent) => void;
   /** Fired repeatedly during any change in zoom level, including zoom and fly animations. */
-  onZoom?: (e: Event) => void;
+  onZoom?: (e: LeafletEvent) => void;
   /** Fired repeatedly during any movement of the map, including pan and fly animations. */
-  onMove?: (e: Event) => void;
+  onMove?: (e: LeafletEvent) => void;
   /** Fired when the map has changed, after any animations. */
-  onZoomEnd?: (e: Event) => void;
+  onZoomEnd?: (e: LeafletEvent) => void;
   /** Fired when the center of the map stops changing (e.g. user stopped dragging the map). */
-  onMoveEnd?: (e: Event) => void;
+  onMoveEnd?: (e: LeafletEvent) => void;
   /** Callback that is run once after initialisation to return the underlying Leaflet.map object */
   onLoaded?: (map: Map) => void;
 }
@@ -317,7 +318,7 @@ export const LeafletMap: FactoryComponent<ILeafletMap> = () => {
     oncreate: ({
       attrs: {
         view = [51.505, -0.09] as LatLngExpression,
-        zoom = 13,
+        zoom,
         baseLayers,
         overlays,
         visible,
@@ -341,8 +342,8 @@ export const LeafletMap: FactoryComponent<ILeafletMap> = () => {
       },
     }) => {
       const { id } = state;
-      const map = L.map(id) as any;
-      map.on('load', (e: Event) => {
+      const map = L.map(id) as DrawMap;
+      map.on('load', (e: LeafletEvent) => {
         // In order to fix an issue when loading leaflet in a modal or tab: https://stackoverflow.com/a/53511529/319711
         setTimeout(() => {
           map.invalidateSize();
@@ -352,9 +353,18 @@ export const LeafletMap: FactoryComponent<ILeafletMap> = () => {
         }
       });
       if (onUnload) {
-        map.on('unload', (e: Event) => onUnload(e));
+        map.on('unload', (e: LeafletEvent) => onUnload(e));
       }
-      map.setView(view, zoom);
+      if (!zoom && overlays && Object.keys(overlays).length > 0) {
+        const markerArray = Object.keys(overlays).reduce((acc, cur) => {
+          const overlay = overlays[cur];
+          acc.push(...overlay.getLayers());
+          return acc;
+        }, [] as L.Layer[]);
+        map.fitBounds(L.featureGroup(markerArray).getBounds(), { padding: new L.Point(20, 20)});
+      } else {
+        map.setView(view, zoom || 13);
+      }
       state.map = map;
       state.onVisibilityChanged = onVisibilityChanged;
       state.overlays = { ...overlays };
@@ -375,28 +385,28 @@ export const LeafletMap: FactoryComponent<ILeafletMap> = () => {
         map.on('dblclick', (e: L.LeafletEvent) => onMapDblClicked(e as LeafletMouseEvent));
       }
       if (onZoomlevelsChange) {
-        map.on('zoomlevelschange', (e: Event) => onZoomlevelsChange(e));
+        map.on('zoomlevelschange', (e: LeafletEvent) => onZoomlevelsChange(e));
       }
       if (onResize) {
         map.on('resize', (e: L.ResizeEvent) => onResize(e));
       }
       if (onZoomStart) {
-        map.on('zoomstart', (e: Event) => onZoomStart(e));
+        map.on('zoomstart', (e: LeafletEvent) => onZoomStart(e));
       }
       if (onMoveStart) {
-        map.on('movestart', (e: Event) => onMoveStart(e));
+        map.on('movestart', (e: LeafletEvent) => onMoveStart(e));
       }
       if (onZoom) {
-        map.on('zoom', (e: Event) => onZoom(e));
+        map.on('zoom', (e: LeafletEvent) => onZoom(e));
       }
       if (onMove) {
-        map.on('move', (e: Event) => onMove(e));
+        map.on('move', (e: LeafletEvent) => onMove(e));
       }
       if (onZoomEnd) {
-        map.on('zoomend', (e: Event) => onZoomEnd(e));
+        map.on('zoomend', (e: LeafletEvent) => onZoomEnd(e));
       }
       if (onMoveEnd) {
-        map.on('moveend', (e: Event) => onMoveEnd(e));
+        map.on('moveend', (e: LeafletEvent) => onMoveEnd(e));
       }
 
       const bl = baseLayers

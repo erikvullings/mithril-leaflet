@@ -2,7 +2,7 @@ import m from 'mithril';
 import { Button, CodeBlock } from 'mithril-materialized';
 import { LeafletMap } from 'mithril-leaflet';
 import { Feature, Geometry } from 'geojson';
-import { LatLngExpression, FeatureGroup, LeafletEvent, geoJSON } from 'leaflet';
+import { FeatureGroup, LeafletEvent, geoJSON } from 'leaflet';
 
 export const HomePage = () => {
   const geojson: GeoJSON.FeatureCollection = {
@@ -197,8 +197,8 @@ export const HomePage = () => {
           m('.introduction', [
             m(LeafletMap, {
               style: 'width: 100%; height: 400px; margin-top: 20px;',
-              view: [51.505, -0.09] as LatLngExpression,
-              zoom: 13,
+              // view: [51.505, -0.09] as LatLngExpression,
+              // zoom: 13,
               overlays,
               visible,
               // editable: ['test', 'pois'],
@@ -206,8 +206,8 @@ export const HomePage = () => {
               showScale: { imperial: false },
               onLayerEdited: (f: FeatureGroup) => console.log(JSON.stringify(f.toGeoJSON(), null, 2)),
               onLoadedOverlaysChanged: (v: string[]) => (state.visible = v),
-              onLoad: (e: Event) => console.log(e),
-              onUnload: (e: Event) => console.log(e),
+              onLoad: (e: LeafletEvent) => console.log(e),
+              onUnload: (e: LeafletEvent) => console.log(e),
             }),
             m(Button, {
               style: 'margin: 10px 10px 0 0;',
@@ -278,10 +278,10 @@ import { LatLngExpression, FeatureGroup, LeafletEvent, geoJSON } from 'leaflet';
 ...
 m(LeafletMap, {
   style: 'width: 100%; height: 400px; margin-top: 20px;',
-  view: [51.505, -0.09] as LatLngExpression,
-  zoom: 13,
-  // overlays,
-  // visible,
+  // view: [51.505, -0.09] as LatLngExpression,
+  // zoom: 13,
+  overlays,
+  visible,
   editable: ['test', 'pois'],
   onMapClicked: console.log,
   showScale: { imperial: false },
