@@ -1,20 +1,20 @@
 dependencies:
-  leaflet: 1.5.1
+  leaflet: 1.6.0
   leaflet-draw: 1.0.4
   material-icons: 0.3.1
   materialize-css: 1.0.0
   mithril: 2.0.4
   mithril-leaflet: 'link:../lib'
-  mithril-materialized: 0.15.4_f3d9df6f4766fd28b6cfb8072ccbc3ca
+  mithril-materialized: 0.16.1_f3d9df6f4766fd28b6cfb8072ccbc3ca
 devDependencies:
   '@types/geojson': 7946.0.7
-  '@types/leaflet': 1.5.5
+  '@types/leaflet': 1.5.9
   '@types/mithril': 2.0.2
-  autoprefixer: 9.7.1
+  autoprefixer: 9.7.4
   cssnano: 4.1.10
   parcel-bundler: 1.12.4
-  rimraf: 3.0.0
-  typescript: 3.7.2
+  rimraf: 3.0.2
+  typescript: 3.8.3
 lockfileVersion: 5.1
 packages:
   /@babel/code-frame/7.5.5:
@@ -853,12 +853,12 @@ packages:
     dev: true
     resolution:
       integrity: sha512-wE2v81i4C4Ol09RtsWFAqg3BUitWbHSpSlIo+bNdsCJijO9sjme+zm+73ZMCa/qMC8UEERxzGbvmr1cffo2SiQ==
-  /@types/leaflet/1.5.5:
+  /@types/leaflet/1.5.9:
     dependencies:
       '@types/geojson': 7946.0.7
     dev: true
     resolution:
-      integrity: sha512-Eyh1LMmW4OFgafL6rjLyGkMqFS5IzgwWHMSgTKbrsvwLjLaWH8Ae8CV5liRe8HSM731oOVDwAMIZgg9P0SO9tg==
+      integrity: sha512-vFj2Y764lC6PpmmoFTui3yEMAKf+Dy08eGIaFgM+efJoKNxDP/bsEr2UHloP6kkJqc+4VO9+KYea2ZhiZCnNrQ==
   /@types/mithril/2.0.2:
     dev: true
     resolution:
@@ -1043,21 +1043,21 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-Wm6ukoaOGJi/73p/cl2GvLjTI5JM1k/O14isD73YML8StrH/7/lRFgmg8nICZgD3bZZvjwCGxtMOD3wWNAu8cg==
-  /autoprefixer/9.7.1:
+  /autoprefixer/9.7.4:
     dependencies:
-      browserslist: 4.7.2
-      caniuse-lite: 1.0.30001008
+      browserslist: 4.9.1
+      caniuse-lite: 1.0.30001031
       chalk: 2.4.2
       normalize-range: 0.1.2
       num2fraction: 1.2.2
-      postcss: 7.0.21
+      postcss: 7.0.27
       postcss-value-parser: 4.0.2
     dev: true
     engines:
       node: '>=6.0.0'
     hasBin: true
     resolution:
-      integrity: sha512-w3b5y1PXWlhYulevrTJ0lizkQ5CyqfeU6BIRDbuhsMupstHQOeb1Ur80tcB1zxSu7AwyY/qCQ7Vvqklh31ZBFw==
+      integrity: sha512-g0Ya30YrMBAEZk60lp+qfX5YQllG+S5W3GYCFvyHTvhOki0AEQJLPEcIuGRsqVwLi8FvXPVtwTGhfr38hVpm0g==
   /aws-sign2/0.7.0:
     dev: true
     resolution:
@@ -1246,6 +1246,15 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-uZavT/gZXJd2UTi9Ov7/Z340WOSQ3+m1iBVRUknf+okKxonL9P83S3ctiBDtuRmRu8PiCHjqyueqQ9HYlJhxiw==
+  /browserslist/4.9.1:
+    dependencies:
+      caniuse-lite: 1.0.30001031
+      electron-to-chromium: 1.3.366
+      node-releases: 1.1.50
+    dev: true
+    hasBin: true
+    resolution:
+      integrity: sha512-Q0DnKq20End3raFulq6Vfp1ecB9fh8yUNV55s8sekaDDeqBaCtWlRHCUdaWyUeSSBJM7IbM6HcsyaeYqgeDhnw==
   /buffer-equal/0.0.1:
     dev: true
     engines:
@@ -1333,6 +1342,10 @@ packages:
     dev: true
     resolution:
       integrity: sha512-b8DJyb+VVXZGRgJUa30cbk8gKHZ3LOZTBLaUEEVr2P4xpmFigOCc62CO4uzquW641Ouq1Rm9N+rWLWdSYDaDIw==
+  /caniuse-lite/1.0.30001031:
+    dev: true
+    resolution:
+      integrity: sha512-DpAP5a1NGRLgYfaNCaXIRyGARi+3tJA2quZXNNA1Du26VyVkqvy2tznNu5ANyN1Y5aX44QDotZSVSUSi2uMGjg==
   /caseless/0.12.0:
     dev: true
     resolution:
@@ -1993,6 +2006,10 @@ packages:
     dev: true
     resolution:
       integrity: sha512-frDqXvrIROoYvikSKTIKbHbzO6M3/qC6kCIt/1FOa9kALe++c4VAJnwjSFvf1tYLEUsP2n9XZ4XSCyqc3l7A/A==
+  /electron-to-chromium/1.3.366:
+    dev: true
+    resolution:
+      integrity: sha512-MWtwlJaX/MqAH4V7j4pFasq2O4OIH7MltGTEVvzyeuUW+CPYsx+fuVg/MSBrTL4PzZjHidOixaELNy75/XFK1g==
   /elliptic/6.5.1:
     dependencies:
       bn.js: 4.11.8
@@ -3035,10 +3052,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-rsQ6saQO5ST5Aj6XRFylr5zvarWgzWnrg46zQ1MEOEIHsppdC/8hnN8qMoFvACsPvTioAuysya/TVtog15tyAQ==
-  /leaflet/1.5.1:
+  /leaflet/1.6.0:
     dev: false
     resolution:
-      integrity: sha512-ekM9KAeG99tYisNBg0IzEywAlp0hYI5XRipsqRXyRTeuU8jcuntilpp+eFf5gaE0xubc9RuSNIVtByEKwqFV0w==
+      integrity: sha512-CPkhyqWUKZKFJ6K8umN5/D2wrJ2+/8UIpXppY7QDnUZW5bZL5+SEI2J7GBpwh4LIupOKqbNSQXgqmrEJopHVNQ==
   /levn/0.3.0:
     dependencies:
       prelude-ls: 1.1.2
@@ -3221,7 +3238,7 @@ packages:
     dev: true
     resolution:
       integrity: sha1-o1AIsg9BOD7sH7kU9M1d95omQoQ=
-  /mithril-materialized/0.15.4_f3d9df6f4766fd28b6cfb8072ccbc3ca:
+  /mithril-materialized/0.16.1_f3d9df6f4766fd28b6cfb8072ccbc3ca:
     dependencies:
       materialize-css: 1.0.0
       mithril: 2.0.4
@@ -3230,7 +3247,7 @@ packages:
       materialize-css: ^1.0.0
       mithril: ^2.0.4
     resolution:
-      integrity: sha512-r2UYWJvpnTGifCGs/YP27TnhBvcwqF7cv+ES6k1WfRTUWwkn6gug3SiJ8yh6/gA3sGCc3+mY28rZYHAC4JQ2mg==
+      integrity: sha512-Y6r+X5spyE5SiTAiyKN2hdXqyfIw+ZV2t8Qg4usD50royGK8KDA5kDN979tR9JZphsIr3PYif5FUz/TGl1baSQ==
   /mithril/2.0.4:
     dev: false
     hasBin: true
@@ -3333,6 +3350,12 @@ packages:
     dev: true
     resolution:
       integrity: sha512-8MRC/ErwNCHOlAFycy9OPca46fQYUjbJRDcZTHVWIGXIjYLM73k70vv3WkYutVnM4cCo4hE0MqBVVZjP6vjISA==
+  /node-releases/1.1.50:
+    dependencies:
+      semver: 6.3.0
+    dev: true
+    resolution:
+      integrity: sha512-lgAmPv9eYZ0bGwUYAKlr8MG6K4CvWliWqnkcT2P8mMAgVrH3lqfBPorFlxiG1pHQnqmavJZ9vbMXUTNyMLbrgQ==
   /normalize-html-whitespace/1.0.0:
     dev: true
     engines:
@@ -4072,6 +4095,16 @@ packages:
       node: '>=6.0.0'
     resolution:
       integrity: sha512-uIFtJElxJo29QC753JzhidoAhvp/e/Exezkdhfmt8AymWT6/5B7W1WmponYWkHk2eg6sONyTch0A3nkMPun3SQ==
+  /postcss/7.0.27:
+    dependencies:
+      chalk: 2.4.2
+      source-map: 0.6.1
+      supports-color: 6.1.0
+    dev: true
+    engines:
+      node: '>=6.0.0'
+    resolution:
+      integrity: sha512-WuQETPMcW9Uf1/22HWUWP9lgsIC+KEHg2kozMflKjbeUtw9ujvFX6QmIfozaErDkmLWS9WEnEdEe6Uo9/BNTdQ==
   /posthtml-parser/0.4.2:
     dependencies:
       htmlparser2: 3.10.1
@@ -4452,13 +4485,13 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-uWjbaKIK3T1OSVptzX7Nl6PvQ3qAGtKEtVRjRuazjfL3Bx5eI409VZSqgND+4UNnmzLVdPj9FqFJNPqBZFve4w==
-  /rimraf/3.0.0:
+  /rimraf/3.0.2:
     dependencies:
       glob: 7.1.6
     dev: true
     hasBin: true
     resolution:
-      integrity: sha512-NDGVxTsjqfunkds7CqsOiEnxln4Bo7Nddl3XhS4pXg5OzwkLqJ971ZVAAnB+DDLnF76N+VnDEiBHaVV8I06SUg==
+      integrity: sha512-JZkJMZkAGFFPP2YqXZXPbMlMBgsxzE8ILs4lMIX/2o0L9UBw9O/Y3o6wFw/i9YLapcUJWwqbi3kdxIPdC62TIA==
   /ripemd160/2.0.2:
     dependencies:
       hash-base: 3.0.4
@@ -5038,13 +5071,13 @@ packages:
     dev: true
     resolution:
       integrity: sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
-  /typescript/3.7.2:
+  /typescript/3.8.3:
     dev: true
     engines:
       node: '>=4.2.0'
     hasBin: true
     resolution:
-      integrity: sha512-ml7V7JfiN2Xwvcer+XAf2csGO1bPBdRbFCkYBczNZggrBZ9c7G3riSUeJmqEU5uOtXNPMhE3n+R4FA/3YOAWOQ==
+      integrity: sha512-MYlEfn5VrLNsgudQTVJeNaQFUAI7DkhnOjdpAp4T+ku1TfQClewlbSuTVHiA+8skNBgaf02TL/kLOvig4y3G8w==
   /uncss/0.17.2:
     dependencies:
       commander: 2.20.3
@@ -5339,17 +5372,17 @@ packages:
       integrity: sha512-/is78VKbKs70bVZH7w4YaZea6xcJWOAwkhbR0CFuZBmYtfTYF0xjGJF43AYd8g2Uii1yJwmS5GR2vBmrc32sbg==
 specifiers:
   '@types/geojson': ^7946.0.7
-  '@types/leaflet': ^1.5.5
+  '@types/leaflet': ^1.5.9
   '@types/mithril': ^2.0.2
-  autoprefixer: ^9.7.1
+  autoprefixer: ^9.7.4
   cssnano: ^4.1.10
-  leaflet: ^1.5.1
+  leaflet: ^1.6.0
   leaflet-draw: ^1.0.4
   material-icons: ^0.3.1
   materialize-css: ^1.0.0
   mithril: ^2.0.4
-  mithril-leaflet: ^0.1.6
-  mithril-materialized: ^0.15.4
+  mithril-leaflet: ^0.1.7
+  mithril-materialized: ^0.16.1
   parcel-bundler: ^1.12.4
-  rimraf: ^3.0.0
-  typescript: ^3.7.2
+  rimraf: ^3.0.2
+  typescript: ^3.8.3
