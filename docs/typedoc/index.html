@@ -91,8 +91,22 @@ npm i --save-dev @types/leaflet @types/leaflet-draw @types/geojson @types/mithri
 ...
 m(LeafletMap, {
   style: <span class="hljs-string">'height: 400px; margin-top: 20px;'</span>,
-  view: [<span class="hljs-number">51.505</span>, <span class="hljs-number">-0.09</span>] <span class="hljs-keyword">as</span> LatLngExpression,
-  zoom: <span class="hljs-number">13</span>,
+  <span class="hljs-comment">// Default base layer, for others, see https://wiki.openstreetmap.org/wiki/Tile_servers</span>
+  baseLayers: {
+    osm: {
+      url: <span class="hljs-string">'http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png'</span>,
+      options: {
+        subdomains: [<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>],
+        attribution: <span class="hljs-string">'&amp;copy; &lt;a href="http://osm.org/copyright"&gt;OpenStreetMap&lt;/a&gt; contributors'</span>,
+        maxZoom: <span class="hljs-number">19</span>,
+        maxNativeZoom: <span class="hljs-number">17</span>,
+      },
+    },
+  },
+  <span class="hljs-comment">// Optionally, specify initial view and zoom. By default, fit bounds is applied.</span>
+  <span class="hljs-comment">// view: [51.505, -0.09] as LatLngExpression,</span>
+  <span class="hljs-comment">// zoom: 13,</span>
+  <span class="hljs-comment">// Optionally, add overlay layers and specify which ones are visible.</span>
   <span class="hljs-comment">// overlays,</span>
   <span class="hljs-comment">// visible,</span>
   editable: [<span class="hljs-string">'test'</span>, <span class="hljs-string">'pois'</span>],
