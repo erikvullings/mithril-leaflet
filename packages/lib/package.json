@@ -1,9 +1,8 @@
 {
   "name": "mithril-leaflet",
   "version": "0.1.7",
-  "description": "A materialize library for mithril.",
+  "description": "A Leaflet drawable map component for mithril.",
   "main": "dist/index.js",
-  "module": "dist/index.esm.js",
   "typings": "dist/index.d.ts",
   "repository": {
     "type": "git",

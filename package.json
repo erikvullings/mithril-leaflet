@@ -2,7 +2,7 @@
   "name": "mithril-leaflet",
   "version": "0.0.1",
   "private": true,
-  "description": "A map component for mithril based on leaflet.",
+  "description": "A Leaflet drawable map component for mithril.",
   "scripts": {
     "postinstall": "lerna run link",
     "link": "lerna run link",
