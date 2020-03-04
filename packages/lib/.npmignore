@@ -1,8 +1,9 @@
 node_modules
 scripts
 src
+rollup.config.js
 .editorconfig
 .gitignore
 postcss.config.js
-tsconfig
-tslint
+tsconfig.json
+tslint.json

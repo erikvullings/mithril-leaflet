@@ -56,7 +56,7 @@
 					<a href="globals.html">Globals</a>
 				</li>
 			</ul>
-			<h1> mithril-leaflet</h1>
+			<h1>mithril-leaflet</h1>
 		</div>
 	</div>
 </header>
@@ -69,6 +69,7 @@
 				</a>
 				<p>This library offers a <code>LeafletMap</code> component for the <a href="https://mithril.js.org">mithril</a> framework, which combines <a href="http://leafletjs.com">leaflet</a> for displaying maps, and <a href="http://leaflet.github.io/Leaflet.draw/docs/leaflet-draw-latest.html">leaflet-draw</a> for editing overlays (see the <a href="https://erikvullings.github.io/mithril-leaflet/">demo</a>).</p>
 				<p><img src="https://github.com/erikvullings/mithril-leaflet/blob/master/img/screenshot.png?raw=true" alt="screenshot"></p>
+				<p>If you set the view and zoom factor when creating the map, they are used for centring. Otherwise, all initial overlays are used to compute the bounds (<a href="https://leafletjs.com/reference-1.6.0.html#map-fitbounds">see leaflet.fitBounds</a>).</p>
 				<p>When editing, the last selected editable layer can be edited. So if you have multiple overlays, each of which can be edited, only the one you selected last can be changed. During editing, the same limitations apply as mentioned in <a href="http://leaflet.github.io/Leaflet.draw/docs/leaflet-draw-latest.html">leaflet-draw</a>: markers can be moved, polylines and lines can be edited. There is no editing support, however, for multi-lines and multi-polygons.</p>
 				<p>When multiple overlays are present, a layer control is shown. You can also enable the scale control, optionally choosing between metric, imperial or both.</p>
 				<p>You can check out the API documentation <a href="https://erikvullings.github.io/mithril-leaflet/typedoc/index.html">here</a> or review the <a href="https://github.com/erikvullings/mithril-leaflet/blob/master/packages/example/src/components/home/home-page.ts">example source code</a>.</p>
@@ -115,13 +116,13 @@ npm run build:domain <span class="hljs-comment"># for deploying it to GitHub</sp
 						<a href="globals.html"><em>Globals</em></a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/_index_.html">"index"</a>
+						<a href="modules/_index_.html">&quot;index&quot;</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/_leaflet_map_.html">"leaflet-<wbr>map"</a>
+						<a href="modules/_leaflet_map_.html">&quot;leaflet-<wbr>map&quot;</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/_utils_.html">"utils"</a>
+						<a href="modules/_utils_.html">&quot;utils&quot;</a>
 					</li>
 				</ul>
 			</nav>
