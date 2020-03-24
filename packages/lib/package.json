@@ -1,6 +1,6 @@
 {
   "name": "mithril-leaflet",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "A Leaflet drawable map component for mithril.",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -12,13 +12,13 @@
     "clean": "rimraf .rpt2_cache dist",
     "link": "npm link",
     "typedoc": "typedoc --out ../../docs/typedoc src",
-    "build:domain": "npm run build && npm run typedoc",
+    "build:domain": "npm run clean && npm run build && npm run typedoc",
     "start": "webpack --config scripts/webpack.dev.js",
     "build": "webpack --optimize-minimize --config scripts/webpack.prod.js",
     "dry-run": "npm publish --dry-run",
-    "patch-release": "npm version patch --force -m \"Patch release\" && npm run publish",
-    "minor-release": "npm version minor --force -m \"Minor release\" && npm run publish",
-    "major-release": "npm version major --force -m \"Major release\" && npm run publish",
+    "patch-release": "npm run build:domain && npm version patch --force -m \"Patch release\" && npm run publish",
+    "minor-release": "npm run build:domain && npm version minor --force -m \"Minor release\" && npm run publish",
+    "major-release": "npm run build:domain && npm version major --force -m \"Major release\" && npm run publish",
     "publish": "git commit package.json -m \"version bump\" && npm publish && git push --follow-tags"
   },
   "keywords": [
