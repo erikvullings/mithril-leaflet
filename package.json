@@ -8,11 +8,11 @@
     "link": "lerna run link",
     "clean:local": "rimraf ./docs",
     "clean": "npm run clean:local && lerna run clean --parallel",
-    "build:domain": "npm run clean && lerna run build:domain --parallel",
+    "build:domain": "lerna run build:domain",
     "start": "lerna run start --parallel",
     "dry-run": "lerna run dry-run --parallel",
-    "patch-release": "lerna run patch-release --parallel",
-    "minor-release": "lerna run minor-release --parallel"
+    "patch-release": "lerna run build:domain --parallel && lerna run patch-release --parallel",
+    "minor-release": "lerna run build:domain --parallel && lerna run minor-release --parallel"
   },
   "keywords": [
     "mithril",

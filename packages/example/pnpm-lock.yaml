@@ -4,7 +4,7 @@ dependencies:
   material-icons: 0.3.1
   materialize-css: 1.0.0
   mithril: 2.0.4
-  mithril-leaflet: 'link:../lib'
+  mithril-leaflet: 0.1.7_540248bce08b6daa8f39770dcc779455
   mithril-materialized: 0.16.1_f3d9df6f4766fd28b6cfb8072ccbc3ca
 devDependencies:
   '@types/geojson': 7946.0.7
@@ -3238,6 +3238,18 @@ packages:
     dev: true
     resolution:
       integrity: sha1-o1AIsg9BOD7sH7kU9M1d95omQoQ=
+  /mithril-leaflet/0.1.7_540248bce08b6daa8f39770dcc779455:
+    dependencies:
+      leaflet: 1.6.0
+      leaflet-draw: 1.0.4
+      mithril: 2.0.4
+    dev: false
+    peerDependencies:
+      leaflet: ^1.5.1
+      leaflet-draw: ^1.0.4
+      mithril: ^2.0.4
+    resolution:
+      integrity: sha512-8f56fJsglSmEpVAjH/4bpgcjXr587+r8ZttLet9gcOl6C78ZXrCwrz5twIo2NLqmLuLGv77vmKyzIf7XVuqoRw==
   /mithril-materialized/0.16.1_f3d9df6f4766fd28b6cfb8072ccbc3ca:
     dependencies:
       materialize-css: 1.0.0

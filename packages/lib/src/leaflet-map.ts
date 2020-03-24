@@ -23,6 +23,25 @@ import iconRetinaUrl from 'leaflet/dist/images/marker-icon-2x.png';
 import iconUrl from 'leaflet/dist/images/marker-icon.png';
 import shadowUrl from 'leaflet/dist/images/marker-shadow.png';
 
+export enum LeafletDrawEvent {
+  CREATED = 'draw:created',
+  DELETED = 'draw:deleted',
+  DELETESTART = 'draw:deletestart',
+  DELETESTOP = 'draw:deletestop',
+  DRAWSTART = 'draw:drawstart',
+  DRAWSTOP = 'draw:drawstop',
+  DRAWVERTEX = 'draw:drawvertex',
+  EDITED = 'draw:edited',
+  EDITMOVE = 'draw:editmove',
+  EDITRESIZE = 'draw:editresize',
+  EDITSTART = 'draw:editstart',
+  EDITSTOP = 'draw:editstop',
+  EDITVERTEX = 'draw:editvertex',
+  MARKERCONTEXT = 'draw:markercontext',
+  TOOLBARCLOSED = 'draw:toolbarclosed',
+  TOOLBAROPENED = 'draw:toolbaropened',
+}
+
 // Assign the imported image assets before you do anything with Leaflet.
 Marker.prototype.options.icon = icon({
   iconRetinaUrl,
@@ -91,7 +110,7 @@ export interface ILeafletMap extends Attributes, TileLayerOptions {
    * Called when the layer was edited (either features were moved, deleted, or created).
    * Useful in case you want to update a layer or export it to GeoJSON (using layer.toGeoJSON).
    */
-  onLayerEdited?: (geojson: FeatureGroup) => void;
+  onLayerEdited?: (geojson: FeatureGroup, event?: LeafletDrawEvent) => void;
   /** Callback that is called when the map is clicked (or tapped). */
   onMapClicked?: (e: LeafletMouseEvent) => void;
   /** Callback that is called when the map is double clicked (or tapped). */
@@ -169,7 +188,10 @@ export const LeafletMap: FactoryComponent<ILeafletMap> = () => {
   };
 
   /** Add a draw control to the map */
-  const addDrawControl = (drawLayer: FeatureGroup, onLayerEdited?: (geojson: FeatureGroup) => void) => {
+  const addDrawControl = (
+    drawLayer: FeatureGroup,
+    onLayerEdited?: (geojson: FeatureGroup, event?: LeafletDrawEvent) => void
+  ) => {
     const { map, drawCtrl } = state;
     if (drawCtrl) {
       map.removeControl(drawCtrl);
@@ -194,13 +216,13 @@ export const LeafletMap: FactoryComponent<ILeafletMap> = () => {
     });
     if (onLayerEdited) {
       map.on(L.Draw.Event.CREATED, () => {
-        onLayerEdited(drawLayer);
+        onLayerEdited(drawLayer, LeafletDrawEvent.CREATED);
       });
       map.on(L.Draw.Event.DELETED, () => {
-        onLayerEdited(drawLayer);
+        onLayerEdited(drawLayer, LeafletDrawEvent.DELETED);
       });
       map.on(L.Draw.Event.EDITSTOP, () => {
-        onLayerEdited(drawLayer);
+        onLayerEdited(drawLayer, LeafletDrawEvent.EDITSTOP);
       });
     }
     state.drawCtrl = drawControl;
@@ -318,7 +340,7 @@ export const LeafletMap: FactoryComponent<ILeafletMap> = () => {
     },
     oncreate: ({
       attrs: {
-        view = [51.505, -0.09] as LatLngExpression,
+        view = [52.373, 4.893] as LatLngExpression,
         zoom,
         baseLayers,
         overlays,
@@ -356,13 +378,15 @@ export const LeafletMap: FactoryComponent<ILeafletMap> = () => {
       if (onUnload) {
         map.on('unload', (e: LeafletEvent) => onUnload(e));
       }
-      if (!zoom && overlays && Object.keys(overlays).length > 0) {
+      if (!(view && zoom) && overlays && Object.keys(overlays).length > 0) {
         const markerArray = Object.keys(overlays).reduce((acc, cur) => {
           const overlay = overlays[cur];
           acc.push(...overlay.getLayers());
           return acc;
         }, [] as L.Layer[]);
-        map.fitBounds(L.featureGroup(markerArray).getBounds(), { padding: new L.Point(20, 20)});
+        map.fitBounds(L.featureGroup(markerArray).getBounds(), {
+          padding: new L.Point(20, 20),
+        });
       } else {
         map.setView(view, zoom || 13);
       }
@@ -411,14 +435,11 @@ export const LeafletMap: FactoryComponent<ILeafletMap> = () => {
       }
 
       const bl = baseLayers
-        ? Object.keys(baseLayers).reduce(
-            (acc, key) => {
-              const cur = baseLayers[key];
-              acc[key] = L.tileLayer(cur.url, cur.options);
-              return acc;
-            },
-            {} as { [key: string]: Layer }
-          )
+        ? Object.keys(baseLayers).reduce((acc, key) => {
+            const cur = baseLayers[key];
+            acc[key] = L.tileLayer(cur.url, cur.options);
+            return acc;
+          }, {} as { [key: string]: Layer })
         : defaultBaseLayer;
       const baseLayer = Object.keys(bl)
         .map(key => bl[key])
