@@ -197,8 +197,8 @@ export const HomePage = () => {
           m('.introduction', [
             m(LeafletMap, {
               style: 'width: 100%; height: 400px; margin-top: 20px;',
-              // view: [51.505, -0.09] as LatLngExpression,
-              // zoom: 13,
+              // view: [52.505, 5],
+              // zoom: 9,
               overlays,
               visible,
               editable: ['test', 'pois'],

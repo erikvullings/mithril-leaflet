@@ -387,6 +387,7 @@ export const LeafletMap: FactoryComponent<ILeafletMap> = () => {
       if (view) {
         map.setView(view, zoom || 13);
       } else if (overlays && Object.keys(overlays).length > 0) {
+        console.log('overlay');
         const markerArray = Object.keys(overlays).reduce((acc, cur) => {
           const overlay = overlays[cur];
           acc.push(...overlay.getLayers());
