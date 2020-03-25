@@ -72,10 +72,15 @@ export interface ILeafletMap extends Attributes, TileLayerOptions {
   visible?: string[];
   /** Keys of the editable overlay layers: the last editable layer that is selected becomes editable. */
   editable?: string[];
-  /** Set initial view in longitude, latitude, @default [51.505,-0.09] */
+  /** Set initial view in longitude, latitude */
   view?: LatLngExpression;
   /** Zoom level, @default 13 */
   zoom?: number;
+  /**
+   * Fallback view and zoom, used when no view or zoom is set, and no layers are present: [lat, lng, zoom]
+   * @default: [52.373, 4.893, 13] (Amsterdam)
+   */
+  fallbackViewZoom?: [number, number, number];
   /** Default html style to apply, e.g. the component must have its height set. @default 'height: 400px' */
   style?: string;
   /** The class name(s) for this virtual element, as a space-separated list. */
@@ -340,8 +345,9 @@ export const LeafletMap: FactoryComponent<ILeafletMap> = () => {
     },
     oncreate: ({
       attrs: {
-        view = [52.373, 4.893] as LatLngExpression,
+        view,
         zoom,
+        fallbackViewZoom = [52.373, 4.893, 13],
         baseLayers,
         overlays,
         visible,
@@ -378,7 +384,9 @@ export const LeafletMap: FactoryComponent<ILeafletMap> = () => {
       if (onUnload) {
         map.on('unload', (e: LeafletEvent) => onUnload(e));
       }
-      if (!(view && zoom) && overlays && Object.keys(overlays).length > 0) {
+      if (view) {
+        map.setView(view, zoom || 13);
+      } else if (overlays && Object.keys(overlays).length > 0) {
         const markerArray = Object.keys(overlays).reduce((acc, cur) => {
           const overlay = overlays[cur];
           acc.push(...overlay.getLayers());
@@ -387,8 +395,8 @@ export const LeafletMap: FactoryComponent<ILeafletMap> = () => {
         map.fitBounds(L.featureGroup(markerArray).getBounds(), {
           padding: new L.Point(20, 20),
         });
-      } else {
-        map.setView(view, zoom || 13);
+      } else if (fallbackViewZoom) {
+        map.setView([fallbackViewZoom[0], fallbackViewZoom[1]], fallbackViewZoom[2]);
       }
       state.map = map;
       state.onVisibilityChanged = onVisibilityChanged;
