@@ -81,6 +81,8 @@ export interface ILeafletMap extends Attributes, TileLayerOptions {
    * @default: [52.373, 4.893, 13] (Amsterdam)
    */
   fallbackViewZoom?: [number, number, number];
+  /** Auto-fit the overlays */
+  autoFit?: boolean;
   /** Default html style to apply, e.g. the component must have its height set. @default 'height: 400px' */
   style?: string;
   /** The class name(s) for this virtual element, as a space-separated list. */
@@ -157,7 +159,7 @@ export interface ILeafletMap extends Attributes, TileLayerOptions {
 export const LeafletMap: FactoryComponent<ILeafletMap> = () => {
   const state = {} as {
     id: string;
-    map: Map;
+    map: DrawMap;
     /** When the draw control is visible, store a reference */
     layerCtrl?: L.Control.Layers;
     /** When editing a layer, store a reference to the current draw control so we can remove it */
@@ -330,13 +332,27 @@ export const LeafletMap: FactoryComponent<ILeafletMap> = () => {
     }),
   };
 
+  const autoFitBounds = (map: L.DrawMap, overlays: { [key: string]: L.FeatureGroup<any> }) => {
+    const markerArray = Object.keys(overlays).reduce((acc, cur) => {
+      const overlay = overlays[cur];
+      acc.push(...overlay.getLayers());
+      return acc;
+    }, [] as L.Layer[]);
+    map.fitBounds(L.featureGroup(markerArray).getBounds(), {
+      padding: new L.Point(20, 20),
+    });
+  };
+
   return {
     oninit: ({ attrs: { id } }) => {
       state.id = id || uniqueId();
     },
-    onupdate: ({ attrs: { visible, overlays } }) => {
+    onupdate: ({ attrs: { visible, overlays, autoFit } }) => {
       updateLayers(overlays);
       showHideOverlays(visible);
+      if (autoFit && overlays) {
+        autoFitBounds(state.map, overlays);
+      }
     },
     view: ({ attrs: { style = 'height: 400px', className } }) => {
       const { id } = state;
@@ -347,6 +363,7 @@ export const LeafletMap: FactoryComponent<ILeafletMap> = () => {
       attrs: {
         view,
         zoom,
+        autoFit,
         fallbackViewZoom = [52.373, 4.893, 13],
         baseLayers,
         overlays,
@@ -386,16 +403,8 @@ export const LeafletMap: FactoryComponent<ILeafletMap> = () => {
       }
       if (view) {
         map.setView(view, zoom || 13);
-      } else if (overlays && Object.keys(overlays).length > 0) {
-        console.log('overlay');
-        const markerArray = Object.keys(overlays).reduce((acc, cur) => {
-          const overlay = overlays[cur];
-          acc.push(...overlay.getLayers());
-          return acc;
-        }, [] as L.Layer[]);
-        map.fitBounds(L.featureGroup(markerArray).getBounds(), {
-          padding: new L.Point(20, 20),
-        });
+      } else if (autoFit && overlays && Object.keys(overlays).length > 0) {
+        autoFitBounds(map, overlays);
       } else if (fallbackViewZoom) {
         map.setView([fallbackViewZoom[0], fallbackViewZoom[1]], fallbackViewZoom[2]);
       }

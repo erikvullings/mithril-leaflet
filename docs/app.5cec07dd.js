@@ -31575,6 +31575,18 @@ var define;
               maxNativeZoom: 17
             })
           };
+
+          var autoFitBounds = function (map, overlays) {
+            var markerArray = Object.keys(overlays).reduce(function (acc, cur) {
+              var overlay = overlays[cur];
+              acc.push.apply(acc, overlay.getLayers());
+              return acc;
+            }, []);
+            map.fitBounds(leaflet_1.default.featureGroup(markerArray).getBounds(), {
+              padding: new leaflet_1.default.Point(20, 20)
+            });
+          };
+
           return {
             oninit: function (_a) {
               var id = _a.attrs.id;
@@ -31583,9 +31595,14 @@ var define;
             onupdate: function (_a) {
               var _b = _a.attrs,
                   visible = _b.visible,
-                  overlays = _b.overlays;
+                  overlays = _b.overlays,
+                  autoFit = _b.autoFit;
               updateLayers(overlays);
               showHideOverlays(visible);
+
+              if (autoFit && overlays) {
+                autoFitBounds(state.map, overlays);
+              }
             },
             view: function (_a) {
               var _b = _a.attrs,
@@ -31602,6 +31619,7 @@ var define;
               var _b = _a.attrs,
                   view = _b.view,
                   zoom = _b.zoom,
+                  autoFit = _b.autoFit,
                   _c = _b.fallbackViewZoom,
                   fallbackViewZoom = _c === void 0 ? [52.373, 4.893, 13] : _c,
                   baseLayers = _b.baseLayers,
@@ -31645,15 +31663,8 @@ var define;
 
               if (view) {
                 map.setView(view, zoom || 13);
-              } else if (overlays && Object.keys(overlays).length > 0) {
-                var markerArray = Object.keys(overlays).reduce(function (acc, cur) {
-                  var overlay = overlays[cur];
-                  acc.push.apply(acc, overlay.getLayers());
-                  return acc;
-                }, []);
-                map.fitBounds(leaflet_1.default.featureGroup(markerArray).getBounds(), {
-                  padding: new leaflet_1.default.Point(20, 20)
-                });
+              } else if (autoFit && overlays && Object.keys(overlays).length > 0) {
+                autoFitBounds(map, overlays);
               } else if (fallbackViewZoom) {
                 map.setView([fallbackViewZoom[0], fallbackViewZoom[1]], fallbackViewZoom[2]);
               }
@@ -32090,10 +32101,11 @@ exports.HomePage = function () {
           feature = state.feature;
       return mithril_1.default('.row', [mithril_1.default('.col.s12.m7.l8', mithril_1.default('.introduction', [mithril_1.default(mithril_leaflet_1.LeafletMap, {
         style: 'width: 100%; height: 400px; margin-top: 20px;',
-        // view: [51.505, -0.09] as LatLngExpression,
-        // zoom: 13,
+        // view: [52.505, 5],
+        // zoom: 9,
         overlays: overlays,
         visible: visible,
+        autoFit: true,
         editable: ['test', 'pois'],
         onMapClicked: console.log,
         showScale: {
@@ -32147,7 +32159,7 @@ exports.HomePage = function () {
         language: 'console',
         code: "npm i mithril leaflet leaflet-draw mithril-leaflet\n# Also install the typings if you use TypeScript\nnpm i --save-dev @types/leaflet @types/leaflet-draw @types/geojson @types/mithril"
       }), mithril_1.default('p', 'Next, you can use them inside your application:'), mithril_1.default(mithril_materialized_1.CodeBlock, {
-        code: "import { LeafletMap } from 'mithril-leaflet';\nimport { Feature, Geometry } from 'geojson';\nimport { LatLngExpression, FeatureGroup, LeafletEvent, geoJSON } from 'leaflet';\n';\n\n...\nm(LeafletMap, {\n  style: 'width: 100%; height: 400px; margin-top: 20px;',\n  // view: [51.505, -0.09] as LatLngExpression,\n  // zoom: 13,\n  overlays,\n  visible,\n  editable: ['test', 'pois'],\n  onMapClicked: console.log,\n  showScale: { imperial: false },\n  onLayerEdited: (f: FeatureGroup) => console.log(JSON.stringify(f.toGeoJSON(), null, 2)),\n  onLoadedOverlaysChanged: (v: string[]) => (state.visible = v),\n})\n"
+        code: "import { LeafletMap } from 'mithril-leaflet';\nimport { Feature, Geometry } from 'geojson';\nimport { LatLngExpression, FeatureGroup, LeafletEvent, geoJSON } from 'leaflet';\n';\n\n...\nm(LeafletMap, {\n  style: 'width: 100%; height: 400px; margin-top: 20px;',\n  // view: [51.505, -0.09] as LatLngExpression,\n  // zoom: 13,\n  overlays,\n  visible,\n  autoFit: true,\n  editable: ['test', 'pois'],\n  onMapClicked: console.log,\n  showScale: { imperial: false },\n  onLayerEdited: (f: FeatureGroup) => console.log(JSON.stringify(f.toGeoJSON(), null, 2)),\n  onLoadedOverlaysChanged: (v: string[]) => (state.visible = v),\n})\n"
       })])), mithril_1.default('.col.s12.m5.l4', [mithril_1.default('h1', 'Feature'), feature ? mithril_1.default('pre', JSON.stringify(feature, null, 2)) : undefined])]);
     }
   };
@@ -32297,7 +32309,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64216" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49628" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
