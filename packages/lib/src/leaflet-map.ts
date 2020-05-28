@@ -17,6 +17,7 @@ import L, {
   LayerGroup,
   GeoJSON,
   DrawMap,
+  MapOptions,
 } from 'leaflet';
 import 'leaflet-draw';
 import iconRetinaUrl from 'leaflet/dist/images/marker-icon-2x.png';
@@ -58,6 +59,12 @@ export interface ILeafletMap extends Attributes, TileLayerOptions {
   /** ID of the HTML map component. By default, a random ID is created. */
   id?: string;
   /**
+   * Leaflet map options.
+   * If you want to set the crs (Coordinate reference system), use:
+   * import proj4leaflet and use crs: new L.Proj.CRS(...)
+   */
+  mapOptions?: MapOptions;
+  /**
    * Base map layer, specifies a URI pointing to a tile server.
    * If there are multiple baseMapUris, the first one will be shown by default,
    * and a layer control will be added to the map.
@@ -65,7 +72,7 @@ export interface ILeafletMap extends Attributes, TileLayerOptions {
    * @see https://wiki.openstreetmap.org/wiki/Tile_servers
    * @see https://leafletjs.com/reference-1.4.0.html#tilelayer
    */
-  baseLayers?: { [key: string]: { url: string; options: TileLayerOptions } };
+  baseLayers?: { [key: string]: { url: string; options?: TileLayerOptions } };
   /** Overlay maps: if provided and length > 1, automatically add a layer control */
   overlays?: { [key: string]: FeatureGroup };
   /** Keys of the visible layers */
@@ -264,7 +271,7 @@ export const LeafletMap: FactoryComponent<ILeafletMap> = () => {
         visible.push(name);
       }
     } else {
-      state.visible = visible.filter(v => v !== name);
+      state.visible = visible.filter((v) => v !== name);
     }
     if (onVisibilityChanged) {
       onVisibilityChanged([...state.visible]);
@@ -280,17 +287,17 @@ export const LeafletMap: FactoryComponent<ILeafletMap> = () => {
     if (visible && overlays) {
       // Add initially visible overlays to the map.
       Object.keys(overlays)
-        .filter(key => visible.indexOf(key) >= 0 && state.visible.indexOf(key) < 0)
-        .forEach(key => {
+        .filter((key) => visible.indexOf(key) >= 0 && state.visible.indexOf(key) < 0)
+        .forEach((key) => {
           state.visible.push(key);
           map.addLayer(overlays[key]);
           // overlays[key].addTo(map);
         });
       // Remove visible overlays to the map.
       Object.keys(overlays)
-        .filter(key => visible.indexOf(key) < 0 && state.visible.indexOf(key) >= 0)
-        .forEach(key => {
-          state.visible = state.visible.filter(v => v !== key);
+        .filter((key) => visible.indexOf(key) < 0 && state.visible.indexOf(key) >= 0)
+        .forEach((key) => {
+          state.visible = state.visible.filter((v) => v !== key);
           map.removeLayer(overlays[key]);
         });
     }
@@ -300,7 +307,7 @@ export const LeafletMap: FactoryComponent<ILeafletMap> = () => {
   const updateLayers = (overlays?: { [key: string]: FeatureGroup }) => {
     const { map, overlays: existingOverlays = {} } = state;
     if (overlays) {
-      Object.keys(overlays).forEach(key => {
+      Object.keys(overlays).forEach((key) => {
         if (existingOverlays[key] !== overlays[key]) {
           existingOverlays[key] = overlays[key];
           if (!state.layerCtrl) {
@@ -312,7 +319,7 @@ export const LeafletMap: FactoryComponent<ILeafletMap> = () => {
         }
       });
     }
-    Object.keys(existingOverlays).forEach(key => {
+    Object.keys(existingOverlays).forEach((key) => {
       if (!overlays || !overlays.hasOwnProperty(key)) {
         if (state.layerCtrl) {
           state.layerCtrl.removeLayer(existingOverlays[key]);
@@ -361,6 +368,7 @@ export const LeafletMap: FactoryComponent<ILeafletMap> = () => {
     },
     oncreate: ({
       attrs: {
+        mapOptions,
         view,
         zoom,
         autoFit,
@@ -388,7 +396,7 @@ export const LeafletMap: FactoryComponent<ILeafletMap> = () => {
       },
     }) => {
       const { id } = state;
-      const map = L.map(id) as DrawMap;
+      const map = L.map(id, mapOptions) as DrawMap;
       map.on('load', (e: LeafletEvent) => {
         // In order to fix an issue when loading leaflet in a modal or tab: https://stackoverflow.com/a/53511529/319711
         setTimeout(() => {
@@ -460,7 +468,7 @@ export const LeafletMap: FactoryComponent<ILeafletMap> = () => {
           }, {} as { [key: string]: Layer })
         : defaultBaseLayer;
       const baseLayer = Object.keys(bl)
-        .map(key => bl[key])
+        .map((key) => bl[key])
         .shift();
       if (baseLayer) {
         baseLayer.addTo(map);
