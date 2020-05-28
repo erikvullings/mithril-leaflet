@@ -192,9 +192,9 @@ export const LeafletMap: FactoryComponent<ILeafletMap> = () => {
     const { map, editingOverlay, drawCtrl } = state;
     const { name } = e as LayersControlEvent;
     if (editingOverlay === name && drawCtrl) {
-      map.off(L.Draw.Event.CREATED);
-      map.off(L.Draw.Event.EDITSTOP);
-      map.off(L.Draw.Event.DELETED);
+      map.off(LeafletDrawEvent.CREATED);
+      map.off(LeafletDrawEvent.EDITSTOP);
+      map.off(LeafletDrawEvent.DELETED);
       map.removeControl(drawCtrl);
       state.drawCtrl = undefined;
       state.editingOverlay = undefined;
@@ -224,18 +224,18 @@ export const LeafletMap: FactoryComponent<ILeafletMap> = () => {
       },
     });
     map.addControl(drawControl);
-    map.on(L.Draw.Event.CREATED, (event: LayerEvent) => {
+    map.on(LeafletDrawEvent.CREATED, (event: LayerEvent) => {
       const layer = event.layer;
       drawLayer.addLayer(layer);
     });
     if (onLayerEdited) {
-      map.on(L.Draw.Event.CREATED, () => {
+      map.on(LeafletDrawEvent.CREATED, () => {
         onLayerEdited(drawLayer, LeafletDrawEvent.CREATED);
       });
-      map.on(L.Draw.Event.DELETED, () => {
+      map.on(LeafletDrawEvent.DELETED, () => {
         onLayerEdited(drawLayer, LeafletDrawEvent.DELETED);
       });
-      map.on(L.Draw.Event.EDITSTOP, () => {
+      map.on(LeafletDrawEvent.EDITSTOP, () => {
         onLayerEdited(drawLayer, LeafletDrawEvent.EDITSTOP);
       });
     }

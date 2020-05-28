@@ -2,7 +2,7 @@ import m from 'mithril';
 import { Button, CodeBlock } from 'mithril-materialized';
 import { LeafletMap } from 'mithril-leaflet';
 import { Feature, Geometry } from 'geojson';
-import { FeatureGroup, LeafletEvent, geoJSON } from 'leaflet';
+import { FeatureGroup, LeafletEvent, geoJSON, circleMarker } from 'leaflet';
 
 export const HomePage = () => {
   const geojson: GeoJSON.FeatureCollection = {
@@ -83,7 +83,7 @@ export const HomePage = () => {
       {
         type: 'Feature',
         properties: {
-          'marker-color': '#7e7e7e',
+          'marker-color': 'red',
           'marker-size': 'medium',
           'marker-symbol': '',
           metro: 'false',
@@ -162,6 +162,15 @@ export const HomePage = () => {
     ],
   };
 
+  const geojsonMarkerOptions = {
+    radius: 8,
+    fillColor: 'blue',
+    color: '#000',
+    weight: 1,
+    opacity: 1,
+    fillOpacity: 0.8,
+  };
+
   const toGeoJSON = (g: GeoJSON.FeatureCollection) => {
     const geo = geoJSON(g, {
       onEachFeature: (feature, layer) => {
@@ -171,6 +180,12 @@ export const HomePage = () => {
           m.redraw();
         });
       },
+      style: () => ({
+        color: '#ff7800',
+        weight: 10 * Math.random(),
+        opacity: 0.65,
+      }),
+      pointToLayer: (feature, latlng) => circleMarker(latlng, geojsonMarkerOptions),
     });
     return geo;
   };
@@ -237,7 +252,7 @@ export const HomePage = () => {
               label: 'Toggle layer pois',
               onclick: () => {
                 if (state.visible.indexOf('pois') >= 0) {
-                  state.visible = visible.filter(l => l !== 'pois');
+                  state.visible = visible.filter((l) => l !== 'pois');
                 } else {
                   state.visible.push('pois');
                 }

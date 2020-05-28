@@ -5,9 +5,9 @@
   "description": "Example project voor the mithril-leaflet library.",
   "scripts": {
     "clean": "rimraf ./dist",
-    "start": "parcel index.html --out-dir ../../docs",
+    "start": "parcel index.html --no-source-maps --out-dir ../../docs",
     "build:domain": "parcel build index.html --out-dir ../../docs --public-url https://erikvullings.github.io/mithril-leaflet && cp assets/favicon.ico ../../docs/",
-    "link": "npm link mithril-leaflet",
+    "link": "pnpm link mithril-leaflet",
     "build": "npm run clean && npm run build:domain",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -20,22 +20,21 @@
   "author": "Erik Vullings <erik.vullings@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "material-icons": "^0.3.1",
-    "materialize-css": "^1.0.0",
-    "mithril-materialized": "^0.16.1",
-    "mithril": "^2.0.4",
     "leaflet": "^1.6.0",
     "leaflet-draw": "^1.0.4",
-    "mithril-leaflet": "^0.1.7"
+    "material-icons": "^0.3.1",
+    "materialize-css": "^1.0.0",
+    "mithril": "^2.0.4",
+    "mithril-materialized": "^0.16.1"
   },
   "devDependencies": {
     "rimraf": "^3.0.2",
     "@types/geojson": "^7946.0.7",
-    "@types/leaflet": "^1.5.9",
+    "@types/leaflet": "^1.5.12",
     "@types/mithril": "^2.0.2",
     "autoprefixer": "^9.7.4",
     "cssnano": "^4.1.10",
     "parcel-bundler": "^1.12.4",
-    "typescript": "^3.8.3"
+    "typescript": "^3.9.3"
   }
 }

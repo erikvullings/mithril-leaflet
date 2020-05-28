@@ -4,17 +4,16 @@ dependencies:
   material-icons: 0.3.1
   materialize-css: 1.0.0
   mithril: 2.0.4
-  mithril-leaflet: 0.1.7_540248bce08b6daa8f39770dcc779455
   mithril-materialized: 0.16.1_f3d9df6f4766fd28b6cfb8072ccbc3ca
 devDependencies:
   '@types/geojson': 7946.0.7
-  '@types/leaflet': 1.5.9
+  '@types/leaflet': 1.5.12
   '@types/mithril': 2.0.2
   autoprefixer: 9.7.4
   cssnano: 4.1.10
   parcel-bundler: 1.12.4
   rimraf: 3.0.2
-  typescript: 3.8.3
+  typescript: 3.9.3
 lockfileVersion: 5.1
 packages:
   /@babel/code-frame/7.5.5:
@@ -853,12 +852,12 @@ packages:
     dev: true
     resolution:
       integrity: sha512-wE2v81i4C4Ol09RtsWFAqg3BUitWbHSpSlIo+bNdsCJijO9sjme+zm+73ZMCa/qMC8UEERxzGbvmr1cffo2SiQ==
-  /@types/leaflet/1.5.9:
+  /@types/leaflet/1.5.12:
     dependencies:
       '@types/geojson': 7946.0.7
     dev: true
     resolution:
-      integrity: sha512-vFj2Y764lC6PpmmoFTui3yEMAKf+Dy08eGIaFgM+efJoKNxDP/bsEr2UHloP6kkJqc+4VO9+KYea2ZhiZCnNrQ==
+      integrity: sha512-61HRMIng+bWvnnAIqUWLBlrd/TQZc4gU+gN1JL4K47EDtwIrcMEhWgi7PdcpbG1YmpH4F0EfOimkvV82gJIl9w==
   /@types/mithril/2.0.2:
     dev: true
     resolution:
@@ -3238,18 +3237,6 @@ packages:
     dev: true
     resolution:
       integrity: sha1-o1AIsg9BOD7sH7kU9M1d95omQoQ=
-  /mithril-leaflet/0.1.7_540248bce08b6daa8f39770dcc779455:
-    dependencies:
-      leaflet: 1.6.0
-      leaflet-draw: 1.0.4
-      mithril: 2.0.4
-    dev: false
-    peerDependencies:
-      leaflet: ^1.5.1
-      leaflet-draw: ^1.0.4
-      mithril: ^2.0.4
-    resolution:
-      integrity: sha512-8f56fJsglSmEpVAjH/4bpgcjXr587+r8ZttLet9gcOl6C78ZXrCwrz5twIo2NLqmLuLGv77vmKyzIf7XVuqoRw==
   /mithril-materialized/0.16.1_f3d9df6f4766fd28b6cfb8072ccbc3ca:
     dependencies:
       materialize-css: 1.0.0
@@ -5083,13 +5070,13 @@ packages:
     dev: true
     resolution:
       integrity: sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
-  /typescript/3.8.3:
+  /typescript/3.9.3:
     dev: true
     engines:
       node: '>=4.2.0'
     hasBin: true
     resolution:
-      integrity: sha512-MYlEfn5VrLNsgudQTVJeNaQFUAI7DkhnOjdpAp4T+ku1TfQClewlbSuTVHiA+8skNBgaf02TL/kLOvig4y3G8w==
+      integrity: sha512-D/wqnB2xzNFIcoBG9FG8cXRDjiqSTbG2wd8DMZeQyJlP1vfTkIxH4GKveWaEBYySKIg+USu+E+EDIR47SqnaMQ==
   /uncss/0.17.2:
     dependencies:
       commander: 2.20.3
@@ -5384,7 +5371,7 @@ packages:
       integrity: sha512-/is78VKbKs70bVZH7w4YaZea6xcJWOAwkhbR0CFuZBmYtfTYF0xjGJF43AYd8g2Uii1yJwmS5GR2vBmrc32sbg==
 specifiers:
   '@types/geojson': ^7946.0.7
-  '@types/leaflet': ^1.5.9
+  '@types/leaflet': ^1.5.12
   '@types/mithril': ^2.0.2
   autoprefixer: ^9.7.4
   cssnano: ^4.1.10
@@ -5393,8 +5380,7 @@ specifiers:
   material-icons: ^0.3.1
   materialize-css: ^1.0.0
   mithril: ^2.0.4
-  mithril-leaflet: ^0.1.7
   mithril-materialized: ^0.16.1
   parcel-bundler: ^1.12.4
   rimraf: ^3.0.2
-  typescript: ^3.8.3
+  typescript: ^3.9.3
