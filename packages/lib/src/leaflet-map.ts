@@ -329,9 +329,12 @@ export const LeafletMap: FactoryComponent<ILeafletMap> = () => {
       acc.push(...overlay.getLayers());
       return acc;
     }, [] as L.Layer[]);
-    map.fitBounds(L.featureGroup(markerArray).getBounds(), {
-      padding: new L.Point(20, 20),
-    });
+    const bounds = L.featureGroup(markerArray).getBounds();
+    if (bounds && bounds.isValid()) {
+      map.fitBounds(bounds, {
+        padding: new L.Point(20, 20),
+      });
+    }
   };
 
   return {
