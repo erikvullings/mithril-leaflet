@@ -84,20 +84,20 @@ npm i --save-dev @types/leaflet @types/leaflet-draw @types/geojson @types/mithri
 					<h2>Usage</h2>
 				</a>
 				<p>Now you can use it in your <a href="https://mithril.js.org">mithril</a> code.</p>
-				<pre><code class="language-ts"><span class="hljs-keyword">import</span> { LeafletMap } <span class="hljs-keyword">from</span> <span class="hljs-string">'mithril-leaflet'</span>;
-<span class="hljs-keyword">import</span> { Feature, Geometry } <span class="hljs-keyword">from</span> <span class="hljs-string">'geojson'</span>;
-<span class="hljs-keyword">import</span> { LatLngExpression, FeatureGroup, LeafletEvent, geoJSON } <span class="hljs-keyword">from</span> <span class="hljs-string">'leaflet'</span>
+				<pre><code class="language-ts"><span class="hljs-keyword">import</span> { LeafletMap } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;mithril-leaflet&#x27;</span>;
+<span class="hljs-keyword">import</span> { Feature, Geometry } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;geojson&#x27;</span>;
+<span class="hljs-keyword">import</span> { LatLngExpression, FeatureGroup, LeafletEvent, geoJSON } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;leaflet&#x27;</span>
 
 ...
 m(LeafletMap, {
-  style: <span class="hljs-string">'height: 400px; margin-top: 20px;'</span>,
+  style: <span class="hljs-string">&#x27;height: 400px; margin-top: 20px;&#x27;</span>,
   <span class="hljs-comment">// Default base layer, for others, see https://wiki.openstreetmap.org/wiki/Tile_servers</span>
   baseLayers: {
     osm: {
-      url: <span class="hljs-string">'http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png'</span>,
+      url: <span class="hljs-string">&#x27;http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png&#x27;</span>,
       options: {
-        subdomains: [<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>],
-        attribution: <span class="hljs-string">'&amp;copy; &lt;a href="http://osm.org/copyright"&gt;OpenStreetMap&lt;/a&gt; contributors'</span>,
+        subdomains: [<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;b&#x27;</span>],
+        attribution: <span class="hljs-string">&#x27;&amp;copy; &lt;a href=&quot;http://osm.org/copyright&quot;&gt;OpenStreetMap&lt;/a&gt; contributors&#x27;</span>,
         maxZoom: <span class="hljs-number">19</span>,
         maxNativeZoom: <span class="hljs-number">17</span>,
       },
@@ -109,7 +109,7 @@ m(LeafletMap, {
   <span class="hljs-comment">// Optionally, add overlay layers and specify which ones are visible.</span>
   <span class="hljs-comment">// overlays,</span>
   <span class="hljs-comment">// visible,</span>
-  editable: [<span class="hljs-string">'test'</span>, <span class="hljs-string">'pois'</span>],
+  editable: [<span class="hljs-string">&#x27;test&#x27;</span>, <span class="hljs-string">&#x27;pois&#x27;</span>],
   onMapClicked: <span class="hljs-built_in">console</span>.log,
   showScale: { imperial: <span class="hljs-literal">false</span> },
   onLayerEdited: <span class="hljs-function">(<span class="hljs-params">f: FeatureGroup</span>) =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">JSON</span>.stringify(f.toGeoJSON(), <span class="hljs-literal">null</span>, <span class="hljs-number">2</span>)),
@@ -168,6 +168,5 @@ npm run build:domain <span class="hljs-comment"># for deploying it to GitHub</sp
 </div>
 <div class="overlay"></div>
 <script src="assets/js/main.js"></script>
-<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
 </body>
 </html>

@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "description": "Example project voor the mithril-leaflet library.",
   "scripts": {
-    "clean": "rimraf ./dist",
+    "clean": "rimraf ./dist ./.cache",
     "start": "parcel index.html --no-source-maps --out-dir ../../docs",
     "build:domain": "parcel build index.html --out-dir ../../docs --public-url https://erikvullings.github.io/mithril-leaflet && cp assets/favicon.ico ../../docs/",
     "link": "pnpm link mithril-leaflet",
@@ -28,13 +28,13 @@
     "mithril-materialized": "^0.16.1"
   },
   "devDependencies": {
-    "rimraf": "^3.0.2",
     "@types/geojson": "^7946.0.7",
     "@types/leaflet": "^1.5.12",
-    "@types/mithril": "^2.0.2",
-    "autoprefixer": "^9.7.4",
+    "@types/mithril": "^2.0.3",
+    "autoprefixer": "^9.8.4",
     "cssnano": "^4.1.10",
     "parcel-bundler": "^1.12.4",
-    "typescript": "^3.9.3"
+    "rimraf": "^3.0.2",
+    "typescript": "^3.9.5"
   }
 }

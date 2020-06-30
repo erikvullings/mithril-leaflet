@@ -117,7 +117,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"node_modules/.pnpm/registry.npmjs.org/parcel-bundler/1.12.4/node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+})({"node_modules/.pnpm/parcel-bundler@1.12.4/node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
 function getBundleURLCached() {
@@ -149,7 +149,7 @@ function getBaseURL(url) {
 
 exports.getBundleURL = getBundleURLCached;
 exports.getBaseURL = getBaseURL;
-},{}],"node_modules/.pnpm/registry.npmjs.org/parcel-bundler/1.12.4/node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
+},{}],"node_modules/.pnpm/parcel-bundler@1.12.4/node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
 var bundle = require('./bundle-url');
 
 function updateLink(link) {
@@ -184,19 +184,19 @@ function reloadCSS() {
 }
 
 module.exports = reloadCSS;
-},{"./bundle-url":"node_modules/.pnpm/registry.npmjs.org/parcel-bundler/1.12.4/node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"node_modules/materialize-css/dist/css/materialize.min.css":[function(require,module,exports) {
+},{"./bundle-url":"node_modules/.pnpm/parcel-bundler@1.12.4/node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"node_modules/materialize-css/dist/css/materialize.min.css":[function(require,module,exports) {
 
         var reloadCSS = require('_css_loader');
         module.hot.dispose(reloadCSS);
         module.hot.accept(reloadCSS);
       
-},{"_css_loader":"node_modules/.pnpm/registry.npmjs.org/parcel-bundler/1.12.4/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"node_modules/material-icons/iconfont/material-icons.css":[function(require,module,exports) {
+},{"_css_loader":"node_modules/.pnpm/parcel-bundler@1.12.4/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"node_modules/material-icons/iconfont/material-icons.css":[function(require,module,exports) {
 
         var reloadCSS = require('_css_loader');
         module.hot.dispose(reloadCSS);
         module.hot.accept(reloadCSS);
       
-},{"./MaterialIcons-Regular.eot":[["MaterialIcons-Regular.bcffbc15.eot","node_modules/material-icons/iconfont/MaterialIcons-Regular.eot"],"node_modules/material-icons/iconfont/MaterialIcons-Regular.eot"],"./MaterialIcons-Regular.woff2":[["MaterialIcons-Regular.11799939.woff2","node_modules/material-icons/iconfont/MaterialIcons-Regular.woff2"],"node_modules/material-icons/iconfont/MaterialIcons-Regular.woff2"],"./MaterialIcons-Regular.woff":[["MaterialIcons-Regular.6924d4ac.woff","node_modules/material-icons/iconfont/MaterialIcons-Regular.woff"],"node_modules/material-icons/iconfont/MaterialIcons-Regular.woff"],"./MaterialIcons-Regular.ttf":[["MaterialIcons-Regular.a71f6b9a.ttf","node_modules/material-icons/iconfont/MaterialIcons-Regular.ttf"],"node_modules/material-icons/iconfont/MaterialIcons-Regular.ttf"],"_css_loader":"node_modules/.pnpm/registry.npmjs.org/parcel-bundler/1.12.4/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"node_modules/mithril/render/vnode.js":[function(require,module,exports) {
+},{"./MaterialIcons-Regular.eot":[["MaterialIcons-Regular.bcffbc15.eot","node_modules/material-icons/iconfont/MaterialIcons-Regular.eot"],"node_modules/material-icons/iconfont/MaterialIcons-Regular.eot"],"./MaterialIcons-Regular.woff2":[["MaterialIcons-Regular.11799939.woff2","node_modules/material-icons/iconfont/MaterialIcons-Regular.woff2"],"node_modules/material-icons/iconfont/MaterialIcons-Regular.woff2"],"./MaterialIcons-Regular.woff":[["MaterialIcons-Regular.6924d4ac.woff","node_modules/material-icons/iconfont/MaterialIcons-Regular.woff"],"node_modules/material-icons/iconfont/MaterialIcons-Regular.woff"],"./MaterialIcons-Regular.ttf":[["MaterialIcons-Regular.a71f6b9a.ttf","node_modules/material-icons/iconfont/MaterialIcons-Regular.ttf"],"node_modules/material-icons/iconfont/MaterialIcons-Regular.ttf"],"_css_loader":"node_modules/.pnpm/parcel-bundler@1.12.4/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"node_modules/mithril/render/vnode.js":[function(require,module,exports) {
 "use strict"
 
 function Vnode(tag, key, attrs, children, text, dom) {
@@ -30980,17 +30980,13 @@ module.exports="/marker-icon.3caa7cec.png";
         module.hot.dispose(reloadCSS);
         module.hot.accept(reloadCSS);
       
-},{"./images\\layers.png":[["layers.69e4b0dc.png","node_modules/leaflet/dist/images/layers.png"],"node_modules/leaflet/dist/images/layers.png"],"./images\\layers-2x.png":[["layers-2x.c9958c4f.png","node_modules/leaflet/dist/images/layers-2x.png"],"node_modules/leaflet/dist/images/layers-2x.png"],"./images\\marker-icon.png":[["marker-icon.3caa7cec.png","node_modules/leaflet/dist/images/marker-icon.png"],"node_modules/leaflet/dist/images/marker-icon.png"],"_css_loader":"node_modules/.pnpm/registry.npmjs.org/parcel-bundler/1.12.4/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"node_modules/leaflet-draw/dist/leaflet.draw.css":[function(require,module,exports) {
+},{"./images\\layers.png":[["layers.69e4b0dc.png","node_modules/leaflet/dist/images/layers.png"],"node_modules/leaflet/dist/images/layers.png"],"./images\\layers-2x.png":[["layers-2x.c9958c4f.png","node_modules/leaflet/dist/images/layers-2x.png"],"node_modules/leaflet/dist/images/layers-2x.png"],"./images\\marker-icon.png":[["marker-icon.3caa7cec.png","node_modules/leaflet/dist/images/marker-icon.png"],"node_modules/leaflet/dist/images/marker-icon.png"],"_css_loader":"node_modules/.pnpm/parcel-bundler@1.12.4/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"node_modules/leaflet-draw/dist/leaflet.draw.css":[function(require,module,exports) {
 
         var reloadCSS = require('_css_loader');
         module.hot.dispose(reloadCSS);
         module.hot.accept(reloadCSS);
       
-},{"./images\\spritesheet.png":[["spritesheet.43d02561.png","node_modules/leaflet-draw/dist/images/spritesheet.png"],"node_modules/leaflet-draw/dist/images/spritesheet.png"],"./images\\spritesheet.svg":[["spritesheet.d149f891.svg","node_modules/leaflet-draw/dist/images/spritesheet.svg"],"node_modules/leaflet-draw/dist/images/spritesheet.svg"],"./images\\spritesheet-2x.png":[["spritesheet-2x.c7e67cd1.png","node_modules/leaflet-draw/dist/images/spritesheet-2x.png"],"node_modules/leaflet-draw/dist/images/spritesheet-2x.png"],"_css_loader":"node_modules/.pnpm/registry.npmjs.org/parcel-bundler/1.12.4/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"node_modules/leaflet/dist/images/marker-icon-2x.png":[function(require,module,exports) {
-module.exports="/marker-icon-2x.b4a0718c.png";
-},{}],"node_modules/leaflet/dist/images/marker-shadow.png":[function(require,module,exports) {
-module.exports="/marker-shadow.5ac34ea4.png";
-},{}],"node_modules/mithril-leaflet/src/leaflet-map.ts":[function(require,module,exports) {
+},{"./images\\spritesheet.png":[["spritesheet.43d02561.png","node_modules/leaflet-draw/dist/images/spritesheet.png"],"node_modules/leaflet-draw/dist/images/spritesheet.png"],"./images\\spritesheet.svg":[["spritesheet.d149f891.svg","node_modules/leaflet-draw/dist/images/spritesheet.svg"],"node_modules/leaflet-draw/dist/images/spritesheet.svg"],"./images\\spritesheet-2x.png":[["spritesheet-2x.c7e67cd1.png","node_modules/leaflet-draw/dist/images/spritesheet-2x.png"],"node_modules/leaflet-draw/dist/images/spritesheet-2x.png"],"_css_loader":"node_modules/.pnpm/parcel-bundler@1.12.4/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"node_modules/mithril-leaflet/src/leaflet-map.ts":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -31009,12 +31005,6 @@ require("leaflet-draw/dist/leaflet.draw.css");
 var _leaflet2 = _interopRequireWildcard(require("leaflet"));
 
 require("leaflet-draw");
-
-var _markerIcon2x = _interopRequireDefault(require("leaflet/dist/images/marker-icon-2x.png"));
-
-var _markerIcon = _interopRequireDefault(require("leaflet/dist/images/marker-icon.png"));
-
-var _markerShadow = _interopRequireDefault(require("leaflet/dist/images/marker-shadow.png"));
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
 
@@ -31072,19 +31062,7 @@ exports.LeafletDrawEvent = LeafletDrawEvent;
   LeafletDrawEvent["MARKERCONTEXT"] = "draw:markercontext";
   LeafletDrawEvent["TOOLBARCLOSED"] = "draw:toolbarclosed";
   LeafletDrawEvent["TOOLBAROPENED"] = "draw:toolbaropened";
-})(LeafletDrawEvent || (exports.LeafletDrawEvent = LeafletDrawEvent = {})); // Assign the imported image assets before you do anything with Leaflet.
-
-
-_leaflet2.Marker.prototype.options.icon = (0, _leaflet2.icon)({
-  iconRetinaUrl: _markerIcon2x.default,
-  iconUrl: _markerIcon.default,
-  shadowUrl: _markerShadow.default,
-  iconSize: [25, 41],
-  iconAnchor: [12, 41],
-  popupAnchor: [1, -34],
-  tooltipAnchor: [16, -28],
-  shadowSize: [41, 41]
-});
+})(LeafletDrawEvent || (exports.LeafletDrawEvent = LeafletDrawEvent = {}));
 
 var LeafletMap = function LeafletMap() {
   var state = {};
@@ -31476,7 +31454,7 @@ var LeafletMap = function LeafletMap() {
 };
 
 exports.LeafletMap = LeafletMap;
-},{"mithril":"node_modules/mithril/index.js","./utils":"node_modules/mithril-leaflet/src/utils.ts","leaflet/dist/leaflet.css":"node_modules/leaflet/dist/leaflet.css","leaflet-draw/dist/leaflet.draw.css":"node_modules/leaflet-draw/dist/leaflet.draw.css","leaflet":"node_modules/leaflet/dist/leaflet-src.js","leaflet-draw":"node_modules/leaflet-draw/dist/leaflet.draw.js","leaflet/dist/images/marker-icon-2x.png":"node_modules/leaflet/dist/images/marker-icon-2x.png","leaflet/dist/images/marker-icon.png":"node_modules/leaflet/dist/images/marker-icon.png","leaflet/dist/images/marker-shadow.png":"node_modules/leaflet/dist/images/marker-shadow.png"}],"node_modules/mithril-leaflet/src/index.ts":[function(require,module,exports) {
+},{"mithril":"node_modules/mithril/index.js","./utils":"node_modules/mithril-leaflet/src/utils.ts","leaflet/dist/leaflet.css":"node_modules/leaflet/dist/leaflet.css","leaflet-draw/dist/leaflet.draw.css":"node_modules/leaflet-draw/dist/leaflet.draw.css","leaflet":"node_modules/leaflet/dist/leaflet-src.js","leaflet-draw":"node_modules/leaflet-draw/dist/leaflet.draw.js"}],"node_modules/mithril-leaflet/src/index.ts":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -31709,9 +31687,6 @@ exports.HomePage = function () {
           weight: 10 * Math.random(),
           opacity: 0.65
         };
-      },
-      pointToLayer: function pointToLayer(feature, latlng) {
-        return leaflet_1.circleMarker(latlng, geojsonMarkerOptions);
       }
     });
     return geo;
@@ -31794,7 +31769,7 @@ exports.HomePage = function () {
         language: 'console',
         code: "npm i mithril leaflet leaflet-draw mithril-leaflet\n# Also install the typings if you use TypeScript\nnpm i --save-dev @types/leaflet @types/leaflet-draw @types/geojson @types/mithril"
       }), mithril_1.default('p', 'Next, you can use them inside your application:'), mithril_1.default(mithril_materialized_1.CodeBlock, {
-        code: "import { LeafletMap } from 'mithril-leaflet';\nimport { Feature, Geometry } from 'geojson';\nimport { LatLngExpression, FeatureGroup, LeafletEvent, geoJSON } from 'leaflet';\n';\n\n...\nm(LeafletMap, {\n  style: 'width: 100%; height: 400px; margin-top: 20px;',\n  // view: [51.505, -0.09] as LatLngExpression,\n  // zoom: 13,\n  overlays,\n  visible,\n  autoFit: true,\n  editable: ['test', 'pois'],\n  onMapClicked: console.log,\n  showScale: { imperial: false },\n  onLayerEdited: (f: FeatureGroup) => console.log(JSON.stringify(f.toGeoJSON(), null, 2)),\n  onLoadedOverlaysChanged: (v: string[]) => (state.visible = v),\n})\n"
+        code: "import { LeafletMap } from 'mithril-leaflet';\nimport { Feature, Geometry } from 'geojson';\nimport L, { LatLngExpression, FeatureGroup, LeafletEvent, geoJSON } from 'leaflet';\n\n// To fix issues with many bundlers, see also https://github.com/Leaflet/Leaflet/issues/4968#issuecomment-483402699\ndelete (L.Icon.Default.prototype as any)._getIconUrl;\n\nL.Icon.Default.mergeOptions({\n  iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),\n  iconUrl: require('leaflet/dist/images/marker-icon.png'),\n  shadowUrl: require('leaflet/dist/images/marker-shadow.png'),\n});\n\n...\nm(LeafletMap, {\n  style: 'width: 100%; height: 400px; margin-top: 20px;',\n  // view: [51.505, -0.09] as LatLngExpression,\n  // zoom: 13,\n  overlays,\n  visible,\n  autoFit: true,\n  editable: ['test', 'pois'],\n  onMapClicked: console.log,\n  showScale: { imperial: false },\n  onLayerEdited: (f: FeatureGroup) => console.log(JSON.stringify(f.toGeoJSON(), null, 2)),\n  onLoadedOverlaysChanged: (v: string[]) => (state.visible = v),\n})\n"
       })])), mithril_1.default('.col.s12.m5.l4', [mithril_1.default('h1', 'Feature'), feature ? mithril_1.default('pre', JSON.stringify(feature, null, 2)) : undefined])]);
     }
   };
@@ -31895,7 +31870,11 @@ exports.dashboardSvc = new DashboardService(layout_1.Layout, [{
   visible: true,
   component: home_page_1.HomePage
 }]);
-},{"mithril":"node_modules/mithril/index.js","../components/layout":"src/components/layout.ts","../components/home/home-page":"src/components/home/home-page.ts"}],"src/app.ts":[function(require,module,exports) {
+},{"mithril":"node_modules/mithril/index.js","../components/layout":"src/components/layout.ts","../components/home/home-page":"src/components/home/home-page.ts"}],"node_modules/leaflet/dist/images/marker-icon-2x.png":[function(require,module,exports) {
+module.exports="/marker-icon-2x.b4a0718c.png";
+},{}],"node_modules/leaflet/dist/images/marker-shadow.png":[function(require,module,exports) {
+module.exports="/marker-shadow.5ac34ea4.png";
+},{}],"src/app.ts":[function(require,module,exports) {
 "use strict";
 
 var __importDefault = this && this.__importDefault || function (mod) {
@@ -31916,8 +31895,16 @@ var mithril_1 = __importDefault(require("mithril"));
 
 var dashboard_service_1 = require("./services/dashboard-service");
 
+var leaflet_1 = __importDefault(require("leaflet"));
+
+delete leaflet_1.default.Icon.Default.prototype._getIconUrl;
+leaflet_1.default.Icon.Default.mergeOptions({
+  iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
+  iconUrl: require('leaflet/dist/images/marker-icon.png'),
+  shadowUrl: require('leaflet/dist/images/marker-shadow.png')
+});
 mithril_1.default.route(document.body, dashboard_service_1.dashboardSvc.defaultRoute, dashboard_service_1.dashboardSvc.routingTable);
-},{"materialize-css/dist/css/materialize.min.css":"node_modules/materialize-css/dist/css/materialize.min.css","material-icons/iconfont/material-icons.css":"node_modules/material-icons/iconfont/material-icons.css","mithril":"node_modules/mithril/index.js","./services/dashboard-service":"src/services/dashboard-service.ts"}],"node_modules/.pnpm/registry.npmjs.org/parcel-bundler/1.12.4/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"materialize-css/dist/css/materialize.min.css":"node_modules/materialize-css/dist/css/materialize.min.css","material-icons/iconfont/material-icons.css":"node_modules/material-icons/iconfont/material-icons.css","mithril":"node_modules/mithril/index.js","./services/dashboard-service":"src/services/dashboard-service.ts","leaflet":"node_modules/leaflet/dist/leaflet-src.js","leaflet/dist/images/marker-icon-2x.png":"node_modules/leaflet/dist/images/marker-icon-2x.png","leaflet/dist/images/marker-icon.png":"node_modules/leaflet/dist/images/marker-icon.png","leaflet/dist/images/marker-shadow.png":"node_modules/leaflet/dist/images/marker-shadow.png"}],"node_modules/.pnpm/parcel-bundler@1.12.4/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -31945,7 +31932,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61908" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61040" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -32121,4 +32108,4 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["node_modules/.pnpm/registry.npmjs.org/parcel-bundler/1.12.4/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","src/app.ts"], null)
+},{}]},{},["node_modules/.pnpm/parcel-bundler@1.12.4/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","src/app.ts"], null)

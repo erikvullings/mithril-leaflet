@@ -13,16 +13,12 @@ import L, {
   Marker,
   Layer,
   LayerEvent,
-  icon,
   LayerGroup,
   GeoJSON,
   DrawMap,
   MapOptions,
 } from 'leaflet';
 import 'leaflet-draw';
-import iconRetinaUrl from 'leaflet/dist/images/marker-icon-2x.png';
-import iconUrl from 'leaflet/dist/images/marker-icon.png';
-import shadowUrl from 'leaflet/dist/images/marker-shadow.png';
 
 export enum LeafletDrawEvent {
   CREATED = 'draw:created',
@@ -42,18 +38,6 @@ export enum LeafletDrawEvent {
   TOOLBARCLOSED = 'draw:toolbarclosed',
   TOOLBAROPENED = 'draw:toolbaropened',
 }
-
-// Assign the imported image assets before you do anything with Leaflet.
-Marker.prototype.options.icon = icon({
-  iconRetinaUrl,
-  iconUrl,
-  shadowUrl,
-  iconSize: [25, 41],
-  iconAnchor: [12, 41],
-  popupAnchor: [1, -34],
-  tooltipAnchor: [16, -28],
-  shadowSize: [41, 41],
-});
 
 export interface ILeafletMap extends Attributes, TileLayerOptions {
   /** ID of the HTML map component. By default, a random ID is created. */

@@ -2,7 +2,7 @@ import m from 'mithril';
 import { Button, CodeBlock } from 'mithril-materialized';
 import { LeafletMap } from 'mithril-leaflet';
 import { Feature, Geometry } from 'geojson';
-import { FeatureGroup, LeafletEvent, geoJSON, circleMarker } from 'leaflet';
+import L, { FeatureGroup, LeafletEvent, geoJSON, circleMarker } from 'leaflet';
 
 export const HomePage = () => {
   const geojson: GeoJSON.FeatureCollection = {
@@ -185,7 +185,7 @@ export const HomePage = () => {
         weight: 10 * Math.random(),
         opacity: 0.65,
       }),
-      pointToLayer: (feature, latlng) => circleMarker(latlng, geojsonMarkerOptions),
+      // pointToLayer: (feature, latlng) => circleMarker(latlng, geojsonMarkerOptions),
     });
     return geo;
   };
@@ -288,8 +288,16 @@ npm i --save-dev @types/leaflet @types/leaflet-draw @types/geojson @types/mithri
             m(CodeBlock, {
               code: `import { LeafletMap } from 'mithril-leaflet';
 import { Feature, Geometry } from 'geojson';
-import { LatLngExpression, FeatureGroup, LeafletEvent, geoJSON } from 'leaflet';
-';
+import L, { LatLngExpression, FeatureGroup, LeafletEvent, geoJSON } from 'leaflet';
+
+// To fix issues with many bundlers, see also https://github.com/Leaflet/Leaflet/issues/4968#issuecomment-483402699
+delete (L.Icon.Default.prototype as any)._getIconUrl;
+
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
+  iconUrl: require('leaflet/dist/images/marker-icon.png'),
+  shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
+});
 
 ...
 m(LeafletMap, {
