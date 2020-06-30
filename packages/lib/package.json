@@ -1,6 +1,6 @@
 {
   "name": "mithril-leaflet",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "A Leaflet drawable map component for mithril.",
   "repository": {
     "type": "git",
