@@ -31256,9 +31256,14 @@ var LeafletMap = function LeafletMap() {
       acc.push.apply(acc, overlay.getLayers());
       return acc;
     }, []);
-    map.fitBounds(_leaflet2.default.featureGroup(markerArray).getBounds(), {
-      padding: new _leaflet2.default.Point(20, 20)
-    });
+
+    var bounds = _leaflet2.default.featureGroup(markerArray).getBounds();
+
+    if (bounds.isValid()) {
+      map.fitBounds(bounds, {
+        padding: new _leaflet2.default.Point(20, 20)
+      });
+    }
   };
 
   return {
@@ -31932,7 +31937,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61040" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58258" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
