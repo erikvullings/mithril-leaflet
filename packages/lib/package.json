@@ -2,15 +2,16 @@
   "name": "mithril-leaflet",
   "version": "0.4.1",
   "description": "A Leaflet drawable map component for mithril.",
-  "typings": "dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git://github.com/erikvullings/mithril-leaflet.git"
   },
   "source": "src/index.ts",
   "main": "dist/index.js",
-  "module": "dist/index.module.js",
+  "module": "dist/index.m.js",
+  "esmodule": "dist/index.modern.js",
   "unpkg": "dist/index.umd.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "microbundle",
     "start": "microbundle watch",
@@ -32,25 +33,19 @@
   "author": "Erik Vullings <erik.vullings@gmail.com> (http://www.tno.nl)",
   "license": "MIT",
   "peerDependencies": {
-    "mithril": "^2.0.4",
     "leaflet": "^1.6.0",
-    "leaflet-draw": "^1.0.4"
+    "leaflet-draw": "^1.0.4",
+    "mithril": "^2.0.4"
   },
   "devDependencies": {
     "@types/geojson": "^7946.0.7",
     "@types/leaflet": "^1.5.12",
-    "@types/leaflet-draw": "^1.0.2",
+    "@types/leaflet-draw": "^1.0.3",
     "@types/mithril": "^2.0.3",
     "rimraf": "^3.0.2",
     "tslib": "^2.0.0",
-    "typedoc": "^0.17.7",
-    "typescript": "^3.9.3",
-    "microbundle": "^0.12.0"
-  },
-  "browserslist": [
-    "last 2 version",
-    "> 1%",
-    "maintained node versions",
-    "not dead"
-  ]
+    "typedoc": "^0.17.8",
+    "typescript": "^3.9.5",
+    "microbundle": "^0.12.2"
+  }
 }
